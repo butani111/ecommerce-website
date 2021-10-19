@@ -6,7 +6,7 @@ const ConnectDatabase = () => {
     .then((data) => {
       console.log(`Mongodb connected with server.`);
     })
-    .catch((err) => console.log(err));
+    // .catch((err) => console.log(err));     // instead used errorHandler in server.js
 };
 
 module.exports = ConnectDatabase;
