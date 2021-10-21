@@ -31,6 +31,14 @@ class Apifeatures {
     this.query = this.query.find(JSON.parse(queryStr));
     return this;
   }
+
+  pagination(resultPerPage) {
+    const currentPage = Number(this.queryStr.page) || 1;
+    const skip = resultPerPage * (currentPage - 1); // skip this numbere of products from start
+    this.query = this.query.limit(resultPerPage).skip(skip);
+    // console.log(resultPerPage)
+    return this;
+  }
 }
 
 module.exports = Apifeatures;
