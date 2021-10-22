@@ -1,4 +1,4 @@
-// Create JWT Token and save it in cookie 
+// Create JWT Token and save it in cookie
 
 const sendToken = (user, statusCode, res) => {
   const token = user.getJWTToken();
