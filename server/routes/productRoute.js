@@ -11,12 +11,12 @@ const {
 const router = express.Router();
 
 router.route("/products").get(getAllProducts);
+router.route("/product/:id").get(getProductDetails);
 router
-  .route("/product/new")
+  .route("/admin/product/new")
   .post(isAuthorizedUser, authorizedRoles("admin"), createProduct);
 router
-  .route("/product/:id")
-  .get(getProductDetails)
+  .route("/admin/product/:id")
   .put(isAuthorizedUser, authorizedRoles("admin"), updateProduct)
   .delete(isAuthorizedUser, authorizedRoles("admin"), deleteProduct);
 
