@@ -1,0 +1,117 @@
+.banner {
+  background-image: linear-gradient(to right, #0ff080, #4e3cf0);
+  height: 100vmin;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.banner > h2 {
+  margin: 5vmax;
+  font: 600 2.5vmax "Roboto";
+}
+.banner > p {
+  font: 300 1.4vmax "Lucida Sans";
+}
+.banner > a > button {
+  margin-bottom: 5vmax;
+  cursor: pointer;
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 1vmax;
+  transition: all 0.5s;
+  width: 9vmax;
+  font: 500 1vmax "Roboto";
+}
+.banner > a > button:hover {
+  background-color: rgb(138, 210, 243);
+}
+
+.banner::after {
+  content: "";
+  width: 100vw;
+  height: 100vmin;
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* clip-path: polygon(100% 68%, 0% 100%, 100% 100%); */
+  clip-path: polygon(50% 76%, 0% 100%, 100% 100%);
+  max-width: 100%;
+}
+
+.home-heading {
+  text-align: center;
+  font-family: "Roboto";
+  font-size: 1.4vmax;
+  width: 20vmax;
+  padding: 1vmax;
+  margin: 5vmax auto;
+  border-bottom: 1px solid gray;
+}
+
+.home-container {
+  display: flex;
+  width: 80vmax;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 2vmax auto;
+}
+
+.product-card {
+  width: 15vmax;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: rgb(41, 40, 40);
+  margin: 2vmax;
+  transition: all 0.5s;
+  padding-bottom: 0.5vmax;
+}
+.product-card > img {
+  width: 100%;
+}
+.product-card > p {
+  font-family: "Roboto";
+  font-size: 1.2vmax;
+  margin: 1vmax 0.5vmax;
+}
+.product-card > div {
+  margin: 0 0.5vmax;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.product-card > div > span {
+  margin: 0.5vmax;
+  font: 300 0.8vmax "Roboto";
+}
+.product-card > span {
+  margin: 0.5vmax;
+  color: rgb(252, 84, 55);
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 1vmax;
+}
+.product-card:hover {
+  box-shadow: 0 0 6px rgba(24, 23, 23, 0.3);
+  transform: translateY(-1vmax);
+}
+
+@media screen and (max-width: 600px) {
+  .product-card > p {
+    font-size: 1.7vmax;
+    margin: 1vmax auto;
+  }
+  .product-card > div {
+    margin: 0;
+    flex-direction: column;
+  }
+  .product-card > span {
+    font-size: 1.5vmax;
+    text-align: center;
+  }
+}
