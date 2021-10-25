@@ -3,14 +3,15 @@ import { ReactNavbar } from "overlay-navbar";
 import logo from "../../../images/logo.png";
 
 const Header = () => {
+  const primaryColor = "#eb4034";
   return (
     <ReactNavbar
-      burgerColorHover="#eb4034"
+      burgerColorHover={primaryColor}
       logo={logo}
       logoWidth="20vmax"
       navColor1="rgba(0,0,0,0.4)"
       logoHoverSize="10px"
-      logoHoverColor="#eb4034"
+      logoHoverColor={primaryColor}
       link1Text="Home"
       link2Text="Product"
       link3Text="Contact"
@@ -25,14 +26,14 @@ const Header = () => {
       nav2justifyContent="flex-end"
       nav3justifyContent="flex-start"
       nav4justifyContent="flex-start"
-      link1ColorHover="#eb4034"
+      link1ColorHover={primaryColor}
       link1Margin="1vmax"
       searchIconColor="rgba(35, 35, 35, 0.8)"
       cartIconColor="rgba(35, 35, 35, 0.8)"
       profileIconColor="rgba(35, 35, 35, 0.8)"
-      searchIconColorHover="#eb4034"
-      cartIconColorHover="#eb4034"
-      profileIconColorHover="#eb4034"
+      searchIconColorHover={primaryColor}
+      cartIconColorHover={primaryColor}
+      profileIconColorHover={primaryColor}
       cartIconMargin="1vmax"
     />
   );
