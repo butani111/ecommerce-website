@@ -1,47 +1,49 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { CgMouse } from "react-icons/all";
 import "./home.css";
 import Product from "./Product";
-
-// Temprary
-const product = {
-  name: "Mobile 99+",
-  price: "$50000",
-  _id: "asifhkfdk",
-  images: [
-    {
-      url: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.7bG72xhz1-vXEq5qvWWMkwHaE7%26pid%3DApi&f=1",
-    },
-  ],
-};
+import MetaData from "../layout/MetaData";
+import { getProduct } from "../../actions/productAction";
+import { useSelector, useDispatch } from "react-redux";
+import Loader from "../../component/layout/Loader/Loader";
 
 const Home = () => {
+  const dispatch = useDispatch();
+  const { loading, error, products, productsCount } = useSelector(
+    (state) => state.products
+  );
+
+  useEffect(() => {
+    dispatch(getProduct());
+  }, [dispatch]);
+
   return (
     <>
-      <div className="banner">
-        <p>Welcome to SB Store</p>
-        <h2>Explore Amazing Products below</h2>
+      {loading ? (
+        <Loader />
+      ) : (
+        <>
+          <MetaData title="SB Store" />
 
-        <a href="#home-container">
-          <button>
-            Scroll <CgMouse></CgMouse>
-          </button>
-        </a>
-      </div>
+          <div className="banner">
+            <p>Welcome to SB Store</p>
+            <h2>Explore Amazing Products below</h2>
 
-      <h2 className="home-heading">Featured Products</h2>
+            <a href="#home-container">
+              <button>
+                Scroll <CgMouse></CgMouse>
+              </button>
+            </a>
+          </div>
 
-      <div className="home-container" id="home-container">
-        <Product product={product} />
-        <Product product={product} />
-        <Product product={product} />
-        <Product product={product} />
+          <h2 className="home-heading">Featured Products</h2>
 
-        <Product product={product} />
-        <Product product={product} />
-        <Product product={product} />
-        <Product product={product} />
-      </div>
+          <div className="home-container" id="home-container">
+            {products &&
+              products.map((product) => <Product product={product} />)}
+          </div>
+        </>
+      )}
     </>
   );
 };
