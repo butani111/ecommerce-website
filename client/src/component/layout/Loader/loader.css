@@ -4,7 +4,7 @@
   display: grid;
   place-items: center;
   max-width: 100%;
-  /* background-color: #fff; */
+  background-color: #fff;
 }
 
 .loading > div {
