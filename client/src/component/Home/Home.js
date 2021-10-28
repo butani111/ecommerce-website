@@ -3,15 +3,15 @@ import { CgMouse } from "react-icons/all";
 import "./home.css";
 import Product from "./Product";
 import MetaData from "../layout/MetaData";
+import Loader from "../../component/layout/Loader/Loader";
 import { getProduct } from "../../actions/productAction";
 import { useSelector, useDispatch } from "react-redux";
-import Loader from "../../component/layout/Loader/Loader";
 import { useAlert } from "react-alert";
 
 const Home = () => {
   const alert = useAlert();
   const dispatch = useDispatch();
-  const { loading, error, products, productsCount } = useSelector(
+  const { loading, error, products, productCount } = useSelector(
     (state) => state.products
   );
 
