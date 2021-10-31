@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useAlert } from "react-alert";
 import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, getProduct } from "../../actions/productAction";
@@ -11,19 +11,24 @@ import Pagination from "react-js-pagination";
 const Products = ({ match }) => {
   const alert = useAlert();
   const dispatch = useDispatch();
-  const { loading, error, products, productCount } = useSelector(
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const { loading, error, products, productCount, resultPerPage } = useSelector(
     (state) => state.products
   );
 
   const keyword = match.params.keyword;
+  const setCurrentPageNo = (e) => {
+    setCurrentPage(e);
+  };
 
   useEffect(() => {
     if (error) {
       alert.error(error);
       dispatch(clearErrors());
     }
-    dispatch(getProduct(keyword));
-  }, [dispatch, error, alert, keyword]);
+    dispatch(getProduct(keyword, currentPage));
+  }, [dispatch, error, alert, keyword, currentPage]);
 
   return (
     <>
@@ -38,23 +43,25 @@ const Products = ({ match }) => {
             {products &&
               products.map((product) => <ProductCard product={product} />)}
           </div>
-          {/* 
-          <div className="pagination-box">
-            <Pagination
-              activePage={currentPage}
-              itemsCountPerPage={resultPerPage}
-              totalItemsCount={productCount}
-              onChange={setCurrentPageNo}
-              nextPageText='Next'
-              prevPageText="Prev"
-              firstPageText='1st'
-              lastPageText='Last'
-              itemClass='page-item'
-              linkClass='page-link'
-              activeClass='page-item-active'
-              activeLinkClass='page-link-active'
-            />
-          </div> */}
+
+          {resultPerPage <= productCount && (
+            <div className="pagination-box">
+              <Pagination
+                activePage={currentPage}
+                itemsCountPerPage={resultPerPage}
+                totalItemsCount={productCount}
+                onChange={setCurrentPageNo}
+                nextPageText="Next"
+                prevPageText="Prev"
+                firstPageText="1st"
+                lastPageText="Last"
+                itemClass="page-item"
+                linkClass="page-link"
+                activeClass="page-item-active"
+                activeLinkClass="page-link-active"
+              />
+            </div>
+          )}
         </>
       )}
     </>
