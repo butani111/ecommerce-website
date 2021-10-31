@@ -1,9 +1,8 @@
 .product-details {
   width: 100vw;
   max-width: 100%;
-  max-height: 100vh;
+  max-height: 90vh;
   padding: 6vmax;
-  padding-bottom: 0;
   box-sizing: border-box;
   display: flex;
 }
@@ -21,7 +20,6 @@
   align-items: center;
   padding: 2vmax;
   box-sizing: border-box;
-  border: 2px solid gray;
 }
 
 .product-details > div:last-child {
@@ -128,6 +126,7 @@
 .detailsBlock-4 > p {
   font: 300 0.8vmax sans-serif;
   color: rgb(75, 74, 74);
+  text-indent: 1.5vmax;
 }
 
 .submit-review {
@@ -146,6 +145,51 @@
 .submit-review:hover {
   background-color: #b13127;
   transform: scale(1.1);
+}
+
+.product-reviews-heading {
+  width: 20vmax;
+  font: 300 1.5vmax "Roboto";
+  text-align: center;
+  margin: auto;
+  margin-bottom: 2vmax;
+  padding: 1vmax;
+  border-bottom: 1px solid gray;
+}
+
+.product-reviews {
+  display: flex;
+  overflow: auto;
+}
+
+.review-card {
+  flex: none;
+  box-shadow: 0 0 5px gray;
+  border: 1px solid gray;
+  width: 25vmax;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1vmax;
+  padding: 3vmax;
+}
+
+.review-card > img {
+  width: 5vmax;
+}
+
+.review-card > p {
+  font: 600 1vmax "Roboto";
+}
+.review-card > span {
+  font: 300 0.8vmax cursive;
+  color: rgb(66, 64, 64);
+}
+
+.noReviews {
+  color: gray;
+  font: 400 1.3vmax "Gill Sans";
+  text-align: center;
 }
 
 @media screen and (max-width: 650px) {
