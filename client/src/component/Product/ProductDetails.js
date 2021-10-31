@@ -17,7 +17,7 @@ const ProductDetails = ({ match }) => {
     activeColor: "blue",
     value: product.ratings,
     isHalf: true,
-    size: window.innerWidth < 600 ? 15 : 25,
+    size: window.innerWidth < 600 ? 15 : 20,
   };
 
   useEffect(() => {
@@ -48,15 +48,14 @@ const ProductDetails = ({ match }) => {
           </div>
           <div className="detailsBlock-3">
             <p>{`₹${product.price}`}</p>
-            <div className="detailsBlock-3.1">
-              <div className="detailsBlock-3.1.1">
+            <div className="detailsBlock-3-1">
+              <div className="detailsBlock-3-1-1">
                 <button>-</button>
                 <input type="number" value="1" />
                 <button>+</button>
               </div>
               <button>Add to cart</button>
             </div>
-
             <p>
               Status:
               <b className={product.stock < 1 ? "text-red" : "text-green"}>
@@ -64,12 +63,12 @@ const ProductDetails = ({ match }) => {
               </b>
             </p>
           </div>
+
           <div className="detailsBlock-4">
             Description: <p>{product.description}</p>
           </div>
 
           <button className="submit-review">Submit Review</button>
-          {/* <div className="detailsBlock-2"></div> */}
         </div>
       </div>
     </>

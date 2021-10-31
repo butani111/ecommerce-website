@@ -3,6 +3,7 @@
   max-width: 100%;
   max-height: 100vh;
   padding: 6vmax;
+  padding-bottom: 0;
   box-sizing: border-box;
   display: flex;
 }
@@ -43,5 +44,148 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  border-top: 1px solid gray;
+  border-top: 1px solid rgba(165, 161, 161, 0.7);
+  border-bottom: 1px solid rgba(165, 161, 161, 0.7);
+  margin: 1vmax 0;
+  padding: 0.5vmax;
+}
+
+.detailsBlock-2 > span {
+  font: 200 0.9vmax cursive;
+  color: gray;
+  margin: 0 1vmax;
+}
+
+.detailsBlock-3 {
+  width: 70%;
+}
+
+.detailsBlock-3 > p {
+  font: 400 2vmax "Franklin Gothic Medium";
+  margin: 1vmax 0;
+}
+
+.detailsBlock-3-1 {
+  display: flex;
+  align-items: center;
+}
+
+.detailsBlock-3-1-1 > button {
+  border: none;
+  background-color: gray;
+  padding: 0.5vmax;
+  cursor: pointer;
+  color: white;
+  transition: all 0.5s;
+}
+
+.detailsBlock-3-1-1 > button:hover {
+  background-color: rgb(71, 70, 70);
+}
+
+.detailsBlock-3-1-1 > input {
+  display: inline-block;
+  border: none;
+  padding: 0.5vmax;
+  width: 2vmax !important;
+  width: auto;
+  text-align: center;
+  outline: none;
+  font: 400 0.8vmax "Roboto";
+}
+
+.detailsBlock-3-1 > button:last-child {
+  color: white;
+  font: 500 0.8vmax "Roboto";
+  margin: 1vmax;
+  padding: 0.5vmax 2vmax;
+  border-radius: 20px;
+  background-color: #eb4034;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all 0.5s;
+}
+
+.detailsBlock-3-1 > button:last-child:hover {
+  background-color: #b13127;
+}
+
+.detailsBlock-3 > p:last-child {
+  font: 400 1.2vmax "Roboto";
+  margin: 1vmax 0;
+  padding: 0.5vmax;
+  border-top: 1px solid rgba(165, 161, 161, 0.7);
+  border-bottom: 1px solid rgba(165, 161, 161, 0.7);
+}
+.detailsBlock-3 > p:last-child > b {
+  margin-left: 5px;
+}
+
+.detailsBlock-4 {
+  font: 500 1.2vmax sans-serif;
+}
+.detailsBlock-4 > p {
+  font: 300 0.8vmax sans-serif;
+  color: rgb(75, 74, 74);
+}
+
+.submit-review {
+  color: white;
+  font: 500 0.8vmax "Roboto";
+  padding: 0.6vmax 2vmax;
+  margin: 1vmax 0;
+  border: none;
+  border-radius: 20px;
+  background-color: #eb4034;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.5s;
+}
+
+.submit-review:hover {
+  background-color: #b13127;
+  transform: scale(1.1);
+}
+
+@media screen and (max-width: 650px) {
+  .detailsBlock-2,
+  .detailsBlock-3 {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .product-details {
+    flex-direction: column;
+    height: unset;
+  }
+  .product-details > div:last-child {
+    align-items: center;
+  }
+  .detailsBlock-1 {
+    text-align: center;
+  }
+  .detailsBlock-1 > h2 {
+    font-size: 2.5vmax;
+  }
+  .detailsBlock-1 > p {
+    font-size: 1vmax;
+  }
+  .detailsBlock-2 {
+    width: 70%;
+    justify-content: center;
+  }
+  .detailsBlock-3 {
+    text-align: center;
+    width: 70%;
+  }
+  .detailsBlock-3-1 {
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 400px) {
+  .detailsBlock-2,
+  .detailsBlock-3 {
+    width: 90%;
+  }
 }
