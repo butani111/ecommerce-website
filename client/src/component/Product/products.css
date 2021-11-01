@@ -7,6 +7,13 @@
   border-bottom: 1px solid gray;
 }
 
+.no-products {
+  font: 400 2vmax cursive;
+  color: gray;
+  text-align: center;
+  margin: 10vmax auto;
+}
+
 .products {
   display: flex;
   flex-wrap: wrap;
@@ -66,6 +73,21 @@
   position: absolute;
   top: 10vmax;
   left: 2vmax;
+}
+
+.category-box {
+  padding: 0;
+}
+.category-item {
+  list-style: none;
+  color: gray;
+  font: 400 1vmax "Roboto";
+  margin: 0.4vmax;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.category-item:hover {
+  color: tomato;
 }
 
 @media screen and (max-width: 600px) {
