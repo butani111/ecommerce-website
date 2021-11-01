@@ -28,6 +28,7 @@ const Products = ({ match }) => {
   const [currenPrice, setCurrentPrice] = useState([0, 25000]);
   const [price, setPrice] = useState([0, 25000]);
   const [category, setCategory] = useState("");
+  const [ratings, setRatings] = useState(0);
 
   const { loading, error, products, resultPerPage, filteredProductCount } =
     useSelector((state) => state.products);
@@ -37,20 +38,13 @@ const Products = ({ match }) => {
     setCurrentPage(e);
   };
 
-  const currentPriceHandler = (e, newPrice) => {
-    setCurrentPrice(newPrice);
-  };
-  const priceHandler = (e, newPrice) => {
-    setPrice(newPrice);
-  };
-
   useEffect(() => {
     if (error) {
       alert.error(error);
       dispatch(clearErrors());
     }
-    dispatch(getProduct(keyword, currentPage, price, category));
-  }, [dispatch, error, alert, keyword, currentPage, price, category]);
+    dispatch(getProduct(keyword, currentPage, price, category, ratings));
+  }, [dispatch, error, alert, keyword, currentPage, price, category, ratings]);
 
   return (
     <>
@@ -74,8 +68,8 @@ const Products = ({ match }) => {
             <Typography>Price Range</Typography>
             <Slider
               value={currenPrice}
-              onChange={currentPriceHandler}
-              onChangeCommitted={priceHandler}
+              onChange={(e, newPrice) => setCurrentPrice(newPrice)}
+              onChangeCommitted={(e, newPrice) => setPrice(newPrice)}
               valueLabelDisplay="auto"
               aria-labelledby="range-slider"
               min={0}
@@ -98,6 +92,18 @@ const Products = ({ match }) => {
                 </li>
               ))}
             </ul>
+
+            <fieldset>
+              <Typography component="legend">Ratings Above</Typography>
+              <Slider
+                value={ratings}
+                onChange={(e, newRating) => setRatings(newRating)}
+                valueLabelDisplay="auto"
+                aria-labelledby="continuous-slider"
+                min={0}
+                max={5}
+              />
+            </fieldset>
           </div>
 
           {resultPerPage <= filteredProductCount && (
