@@ -11,7 +11,8 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 0.5vmax;
+  padding: 0.5vmax 5vmax;
+  padding-left: 12vmax;
 }
 
 .pagination-box {
@@ -57,4 +58,30 @@
 }
 .page-link-active {
   color: white;
+}
+
+.filter-box {
+  width: 10vmax;
+  max-width: 95%;
+  position: absolute;
+  top: 10vmax;
+  left: 2vmax;
+}
+
+@media screen and (max-width: 600px) {
+  .products-heading {
+    width: 30vw;
+    font: 700 2.5vmax "Roboto";
+  }
+  .products {
+    padding: 0.5vmax 3vmax;
+  }
+  .filter-box {
+    width: 80vw;
+    position: static;
+    margin: auto;
+  }
+  .page-link {
+    font: 300 1.7vmax "Roboto";
+  }
 }

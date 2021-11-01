@@ -1,25 +1,41 @@
 import React, { useEffect, useState } from "react";
 import { useAlert } from "react-alert";
+import Pagination from "react-js-pagination";
 import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, getProduct } from "../../actions/productAction";
 import Loader from "../../component/layout/Loader/Loader";
 import ProductCard from "../Home/ProductCard";
 import MetaData from "../layout/MetaData";
 import "./products.css";
-import Pagination from "react-js-pagination";
+import Slider from "@material-ui/core/Slider";
+import Typography from "@material-ui/core/Typography";
 
 const Products = ({ match }) => {
   const alert = useAlert();
   const dispatch = useDispatch();
   const [currentPage, setCurrentPage] = useState(1);
+  const [currenPrice, setCurrentPrice] = useState([0, 25000]);
+  const [price, setPrice] = useState([0, 25000]);
 
-  const { loading, error, products, productCount, resultPerPage } = useSelector(
-    (state) => state.products
-  );
+  const {
+    loading,
+    error,
+    products,
+    productCount,
+    resultPerPage,
+    filteredProductCount,
+  } = useSelector((state) => state.products);
 
   const keyword = match.params.keyword;
   const setCurrentPageNo = (e) => {
     setCurrentPage(e);
+  };
+
+  const currentPriceHandler = (e, newPrice) => {
+    setCurrentPrice(newPrice);
+  };
+  const priceHandler = (e, newPrice) => {
+    setPrice(newPrice);
   };
 
   useEffect(() => {
@@ -27,8 +43,8 @@ const Products = ({ match }) => {
       alert.error(error);
       dispatch(clearErrors());
     }
-    dispatch(getProduct(keyword, currentPage));
-  }, [dispatch, error, alert, keyword, currentPage]);
+    dispatch(getProduct(keyword, currentPage, price));
+  }, [dispatch, error, alert, keyword, currentPage, price]);
 
   return (
     <>
@@ -44,12 +60,26 @@ const Products = ({ match }) => {
               products.map((product) => <ProductCard product={product} />)}
           </div>
 
-          {resultPerPage <= productCount && (
+          <div className="filter-box">
+            <Typography>Price Range</Typography>
+            <Slider
+              value={currenPrice}
+              onChange={currentPriceHandler}
+              onChangeCommitted={priceHandler}
+              valueLabelDisplay="auto"
+              aria-labelledby="range-slider"
+              min={0}
+              max={25000}
+              step={5}
+            />
+          </div>
+
+          {resultPerPage <= filteredProductCount && (
             <div className="pagination-box">
               <Pagination
                 activePage={currentPage}
                 itemsCountPerPage={resultPerPage}
-                totalItemsCount={productCount}
+                totalItemsCount={filteredProductCount}
                 onChange={setCurrentPageNo}
                 nextPageText="Next"
                 prevPageText="Prev"
