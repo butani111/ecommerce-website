@@ -18,6 +18,7 @@ const options = {
   link2Url: "/products",
   link3Url: "/contact",
   link4Url: "/about",
+  profileIconUrl: "/login",
   link1Size: "1.3vmax",
   link1Color: "rgba(35, 35, 35, 0.8)",
   nav1justifyContent: "flex-end",
