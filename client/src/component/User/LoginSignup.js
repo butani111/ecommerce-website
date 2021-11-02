@@ -158,6 +158,7 @@ const LoginSignup = ({ history }) => {
                     type="email"
                     placeholder="Email"
                     required
+                    name="email"
                     value={email}
                     onChange={registerDataChange}
                   />
@@ -168,6 +169,7 @@ const LoginSignup = ({ history }) => {
                     type="password"
                     placeholder="Password"
                     required
+                    name="password"
                     value={password}
                     onChange={registerDataChange}
                   />
