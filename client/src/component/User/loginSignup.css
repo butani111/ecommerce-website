@@ -1,3 +1,14 @@
+/* Note : This file also works for UpdateProfile page  */
+
+.update-profile-heading {
+  width: 50%;
+  font: 700 1.5vmax "Droid Sans";
+  text-align: center;
+  margin: auto;
+  padding: 1vmax 0;
+  border-bottom: 2px solid gray;
+}
+
 .login-signup-container {
   height: 100vh;
   width: 100vw;
@@ -163,6 +174,9 @@
   }
 }
 @media screen and (max-width: 830px) {
+  .update-profile-heading {
+    font-size: 2.2vmax;
+  }
   .login-signup-box {
     width: 60vw;
   }
