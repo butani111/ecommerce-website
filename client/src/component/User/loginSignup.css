@@ -1,5 +1,7 @@
 /* Note : This file also works for UpdateProfile page  */
 /* Note : This file also works for UpdatePassword page  */
+/* Note : This file also works for ForgotPassword page  */
+/* Note : This file also works for resetPassword page  */
 
 .update-profile-heading,
 .change-password-heading {
@@ -30,6 +32,10 @@
   box-sizing: border-box;
   background-color: white;
   overflow: hidden;
+}
+
+.forgot-password-box {
+  height: 40vh;
 }
 
 .login-signup-toggle {

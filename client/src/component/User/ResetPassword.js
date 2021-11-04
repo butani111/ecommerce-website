@@ -1,34 +1,32 @@
 import React, { useEffect, useState } from "react";
 import "./loginSignup.css";
 import { useDispatch, useSelector } from "react-redux";
-import { clearErrors, updatePassword } from "../../actions/userAction";
+import { clearErrors, resetPassword } from "../../actions/userAction";
 import { useAlert } from "react-alert";
 import Loader from "../layout/Loader/Loader";
-import { UPDATE_PASSWORD_RESET } from "../../constants/userConstants";
 import MetaData from "../layout/MetaData";
 import LockIcon from "@material-ui/icons/Lock";
 import LockOpenIcon from "@material-ui/icons/LockOpen";
-import VpnKeyIcon from "@material-ui/icons/VpnKey";
 
-const UpdatePassword = ({ history }) => {
+const ResetPassword = ({ history, match }) => {
   const dispatch = useDispatch();
   const alert = useAlert();
 
-  const [oldPassword, setOldPassword] = useState("");
-  const [newPassword, setNewPassword] = useState("");
+  const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const { loading, isUpdated, error } = useSelector((state) => state.profile);
+  const { loading, success, error } = useSelector(
+    (state) => state.forgotPassword
+  );
 
-  const updatePasswordSubmit = (e) => {
+  const resetPasswordSubmit = (e) => {
     e.preventDefault();
 
     const myForm = new FormData();
-    myForm.set("oldPassword", oldPassword);
-    myForm.set("newPassword", newPassword);
+    myForm.set("password", password);
     myForm.set("confirmPassword", confirmPassword);
 
-    dispatch(updatePassword(myForm));
+    dispatch(resetPassword(match.params.token, myForm));
   };
 
   useEffect(() => {
@@ -36,12 +34,11 @@ const UpdatePassword = ({ history }) => {
       alert.error(error);
       dispatch(clearErrors);
     }
-    if (isUpdated) {
-      alert.success("Password Changed Successfully");
-      history.push("/account");
-      dispatch({ type: UPDATE_PASSWORD_RESET });
+    if (success) {
+      alert.success("Password reset Successfully");
+      history.push("/login");
     }
-  }, [dispatch, error, alert, history, isUpdated]);
+  }, [dispatch, error, alert, history, success]);
 
   return (
     <>
@@ -49,29 +46,19 @@ const UpdatePassword = ({ history }) => {
         <Loader />
       ) : (
         <>
-          <MetaData title="Update Password" />
+          <MetaData title="Reset Password" />
           <div className="login-signup-container">
             <div className="login-signup-box">
-              <h2 className="change-password-heading">Change Password</h2>
-              <form className="login-form" onSubmit={updatePasswordSubmit}>
-                <div className="login-password">
-                  <VpnKeyIcon />
-                  <input
-                    type="password"
-                    placeholder="Old Password"
-                    required
-                    value={oldPassword}
-                    onChange={(e) => setOldPassword(e.target.value)}
-                  />
-                </div>
+              <h2 className="change-password-heading">Reset Password</h2>
+              <form className="login-form" onSubmit={resetPasswordSubmit}>
                 <div className="login-password">
                   <LockOpenIcon />
                   <input
                     type="password"
                     placeholder="New Password"
                     required
-                    value={newPassword}
-                    onChange={(e) => setNewPassword(e.target.value)}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                   />
                 </div>
                 <div className="login-password">
@@ -85,7 +72,7 @@ const UpdatePassword = ({ history }) => {
                   />
                 </div>
 
-                <input type="submit" value="Change" className="signup-btn" />
+                <input type="submit" value="Submit" className="signup-btn" />
               </form>
             </div>
           </div>
@@ -95,4 +82,4 @@ const UpdatePassword = ({ history }) => {
   );
 };
 
-export default UpdatePassword;
+export default ResetPassword;
