@@ -1,6 +1,8 @@
 /* Note : This file also works for UpdateProfile page  */
+/* Note : This file also works for UpdatePassword page  */
 
-.update-profile-heading {
+.update-profile-heading,
+.change-password-heading {
   width: 50%;
   font: 700 1.5vmax "Droid Sans";
   text-align: center;
@@ -174,7 +176,8 @@
   }
 }
 @media screen and (max-width: 830px) {
-  .update-profile-heading {
+  .update-profile-heading,
+  .change-password-heading {
     font-size: 2.2vmax;
   }
   .login-signup-box {
