@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./productDetails.css";
 import { useSelector, useDispatch } from "react-redux";
 import { clearErrors, getProductDetails } from "../../actions/productAction";
@@ -7,6 +7,7 @@ import Loader from "../layout/Loader/Loader";
 import MetaData from "../layout/MetaData";
 import ReviewCard from "./ReviewCard";
 import { useAlert } from "react-alert";
+import { addItemsToCart } from "../../actions/cartAction";
 
 const ProductDetails = ({ match }) => {
   const dispatch = useDispatch();
@@ -15,6 +16,24 @@ const ProductDetails = ({ match }) => {
   const { product, loading, error } = useSelector(
     (state) => state.productDetails
   );
+
+  const [quantity, setQuantity] = useState(1);
+
+  const increaseQuantity = () => {
+    if (product.stock > quantity) {
+      setQuantity(quantity + 1);
+    }
+  };
+  const decreaseQuantity = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
+  };
+
+  const addToCartHandler = () => {
+    dispatch(addItemsToCart(match.params.id, quantity));
+    alert.success("Item added to Cart");
+  };
 
   const options = {
     edit: false,
@@ -65,11 +84,11 @@ const ProductDetails = ({ match }) => {
                 <p>{`₹${product.price}`}</p>
                 <div className="detailsBlock-3-1">
                   <div className="detailsBlock-3-1-1">
-                    <button>-</button>
-                    <input type="number" value="1" />
-                    <button>+</button>
+                    <button onClick={decreaseQuantity}>-</button>
+                    <input type="number" value={quantity} readOnly />
+                    <button onClick={increaseQuantity}>+</button>
                   </div>
-                  <button>Add to cart</button>
+                  <button onClick={addToCartHandler}>Add to cart</button>
                 </div>
                 <p>
                   Status:

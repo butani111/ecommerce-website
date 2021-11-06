@@ -1,0 +1,236 @@
+.empty-cart {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.empty-cart > svg {
+  font-size: 10vmax;
+  color: tomato;
+}
+
+.empty-cart > p {
+  font: 300 2vmax cursive;
+  margin: 1vmax auto;
+}
+
+.empty-cart > a {
+  color: white;
+  font: 400 1vmax "Roboto";
+  padding: 1vmax 3vmax;
+  margin: 1vmax auto;
+  border: none;
+  border-radius: 20px;
+  text-decoration: none;
+  background-color: rgb(40, 40, 40);
+  cursor: pointer;
+}
+
+.cart-page {
+  padding: 5vmax;
+}
+.cart-header {
+  color: white;
+  font: 300 1vmax "Roboto";
+  width: 90%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 4fr 1fr 1fr;
+  box-sizing: border-box;
+  background-color: tomato;
+}
+
+.cart-header > p {
+  margin: 10px;
+}
+.cart-header > p:last-child {
+  text-align: end;
+}
+
+.cart-container {
+  width: 90%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 4fr 1fr 1fr;
+}
+
+.cart-input {
+  display: flex;
+  align-items: center;
+  height: 8vmax;
+}
+
+.cart-input > button {
+  border: none;
+  background-color: gray;
+  padding: 0.5vmax;
+  cursor: pointer;
+  color: white;
+  transition: all 0.5s;
+}
+.cart-input > button:hover {
+  background-color: rgb(102, 101, 101);
+}
+
+.cart-input > input {
+  border: none;
+  padding: 0.5vmax;
+  width: 1vmax;
+  text-align: center;
+  outline: none;
+  font: 400 1vmax "Roboto";
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.cart-subtotal {
+  display: flex;
+  padding: 0.5vmax;
+  justify-content: flex-end;
+  color: rgba(0, 0, 0, 0.7);
+  align-items: center;
+  height: 8vmax;
+  box-sizing: border-box;
+  font: 300 1vmax cursive;
+}
+
+.cart-gross-total {
+  display: grid;
+  grid-template-columns: 2fr 1.2fr;
+}
+
+.cart-gross-total-box {
+  font: 300 1vmax cursive;
+  margin: 1vmax 4vmax;
+  padding: 2vmax 0;
+  border-top: 3px solid tomato;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cart-checkout-btn {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cart-checkout-btn > button {
+  font: 300 1vmax "Roboto";
+  color: white;
+  margin: 1vmax 4vmax;
+  padding: 0.8vmax 5vmax;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  background-color: tomato;
+}
+
+/* Cart item Card  */
+
+.cart-item-card {
+  display: flex;
+  padding: 1vmax;
+  height: 8vmax;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+.cart-item-card > img {
+  width: 5vmax;
+  max-height: 100%;
+}
+
+.cart-item-card > div {
+  display: flex;
+  margin: 0.3vmax 1vmax;
+  flex-direction: column;
+}
+
+.cart-item-card > div > a {
+  font: 300 1vmax cursive;
+  color: rgba(25, 25, 25, 0.8);
+  text-decoration: none;
+}
+
+.cart-item-card > div > span {
+  font: 300 1vmax "Roboto";
+  color: rgba(25, 25, 25, 0.8);
+}
+
+.cart-item-card > div > p {
+  color: tomato;
+  font: 100 0.9vmax "Roboto";
+  cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+  .cart-page {
+    padding: 0;
+    padding-top: 7vh;
+    min-height: 50vh;
+  }
+  .cart-header {
+    width: 100%;
+    font-size: 1.5vmax;
+    grid-template-columns: 3fr 1fr 1fr;
+  }
+  .cart-container {
+    width: 100%;
+    grid-template-columns: 3fr 1fr 1fr;
+  }
+  .cart-input {
+    height: 20vmax;
+  }
+  .cart-input > button {
+    padding: 1vmax;
+  }
+  .cart-input > input {
+    padding: 1vmax;
+    font-size: 1.5vmax;
+  }
+  .cart-subtotal {
+    padding: 1vmax;
+    height: 20vmax;
+    font-size: 2vmax;
+  }
+  .cart-gross-total {
+    grid-template-columns: 0fr 2fr;
+  }
+  .cart-gross-total-box {
+    padding: 2vmax;
+    font-size: 1.8vmax;
+  }
+  .cart-checkout-btn > button {
+    margin: auto;
+    max-width: 100%;
+    padding: 1vmax 7vmax;
+    font-size: 1.8vmax;
+  }
+
+  /* Cart item Card  */
+
+  .cart-item-card {
+    padding: 3vmax;
+    height: 25vmax;
+  }
+  .cart-item-card > img {
+    width: 10vmax;
+  }
+  .cart-item-card > div {
+    margin: 1vmax 0.5vmax;
+  }
+  .cart-item-card > div > a {
+    font-size: 2vmax;
+    margin: 1vmax 0;
+  }
+  .cart-item-card > div > span {
+    font-size: 1.8vmax;
+  }
+  .cart-item-card > div > p {
+    font-size: 1.5vmax;
+    margin: 1vmax 0;
+  }
+}
