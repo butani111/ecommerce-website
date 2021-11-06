@@ -1,0 +1,109 @@
+.shipping-container {
+  width: 100vw;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.shipping-box {
+  width: 25vw;
+  min-height: 90vh;
+  background-color: white;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.shipping-heading {
+  width: 50%;
+  font: 400 1.5vmax "Roboto";
+  text-align: center;
+  padding: 1vmax;
+  margin: auto;
+  border-bottom: 2px solid gray;
+}
+
+.shipping-form {
+  padding: 2vmax;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  transition: all 0.5s;
+}
+
+.shipping-form > div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.shipping-form > div > input,
+.shipping-form > div > select {
+  width: 100%;
+  font: 500 1vmax cursive;
+  padding: 1vmax 5vmax;
+  padding-right: 1vmax;
+  margin: 1vmax auto;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.shipping-form > div > svg {
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 1.5vmax;
+  position: absolute;
+  transform: translateX(1vmax);
+}
+
+.shipping-btn {
+  width: 100%;
+  font: 300 1vmax "Roboto";
+  color: white;
+  padding: 0.8vmax;
+  margin: 1vmax;
+  border: none;
+  border-radius: 5px;
+  background-color: tomato;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.5s;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+.shipping-btn:hover,
+.shipping-btn:active {
+  background-color: rgb(250, 70, 35);
+  transform: scale(1.1);
+}
+
+@media screen and (max-width: 1000px) {
+  .shipping-box {
+    width: 50vw;
+  }
+}
+@media screen and (max-width: 600px) {
+  .shipping-box {
+    width: 90vw;
+    padding-top: 70px;
+  }
+  .shipping-heading {
+    width: 80vw;
+    font-size: 3vmax;
+  }
+  .shipping-form > div > input,
+  .shipping-form > div > select {
+    font-size: 2vmax;
+    padding: 0 auto;
+  }
+  .shipping-form > div > svg {
+    font-size: 2.5vmax;
+    transform: translateX(1.2vmax);
+  }
+  .shipping-btn {
+    font-size: 2vmax;
+    padding: 1.2vmax;
+  }
+}

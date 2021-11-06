@@ -6,8 +6,9 @@ import { addItemsToCart, removeItemsFromCart } from "../../actions/cartAction";
 import { Link } from "react-router-dom";
 import { Typography } from "@material-ui/core";
 import RemoveShoppingCartIcon from "@material-ui/icons/RemoveShoppingCart";
+import MetaData from "../layout/MetaData";
 
-const Cart = () => {
+const Cart = ({ history }) => {
   const dispatch = useDispatch();
   const { cartItems } = useSelector((state) => state.cart);
 
@@ -26,6 +27,10 @@ const Cart = () => {
     dispatch(removeItemsFromCart(id));
   };
 
+  const checkoutHandler = () => {
+    history.push("/login?redirect=shipping");
+  };
+
   return (
     <>
       {cartItems.length === 0 ? (
@@ -36,6 +41,7 @@ const Cart = () => {
         </div>
       ) : (
         <>
+          <MetaData title="My Cart" />
           <div className="cart-page">
             <div className="cart-header">
               <p>Product</p>
@@ -79,11 +85,14 @@ const Cart = () => {
               <div></div>
               <div className="cart-gross-total-box">
                 <p>Gross Total</p>
-                <p>{"₹4000"}</p>
+                <p>{`₹${cartItems.reduce(
+                  (sum, item) => sum + item.quantity * item.price,
+                  0
+                )}`}</p>
               </div>
               <div></div>
               <div className="cart-checkout-btn">
-                <button>Check Out</button>
+                <button onClick={checkoutHandler}>Check Out</button>
               </div>
             </div>
           </div>

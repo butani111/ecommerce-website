@@ -9,7 +9,7 @@ import { clearErrors, login, register } from "../../actions/userAction";
 import { useAlert } from "react-alert";
 import Loader from "../layout/Loader/Loader";
 
-const LoginSignup = ({ history }) => {
+const LoginSignup = ({ history, location }) => {
   const dispatch = useDispatch();
   const alert = useAlert();
 
@@ -66,15 +66,19 @@ const LoginSignup = ({ history }) => {
     }
   };
 
+  const redirectUrl = location.search
+    ? location.search.split("=")[1]
+    : "/account";
+
   useEffect(() => {
     if (error) {
       alert.error(error);
       dispatch(clearErrors);
     }
     if (isAuthorizedUser) {
-      history.push("/account");
+      history.push(redirectUrl);
     }
-  }, [dispatch, error, alert, history, isAuthorizedUser]);
+  }, [dispatch, error, alert, history, isAuthorizedUser, redirectUrl]);
 
   const switchTabs = (e, tab) => {
     if (tab === "login") {
