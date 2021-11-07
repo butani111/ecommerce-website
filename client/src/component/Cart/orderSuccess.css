@@ -1,0 +1,37 @@
+.order-success {
+  height: 50vh;
+  text-align: center;
+  margin: auto;
+  padding: 10vmax;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.order-success > svg {
+  font-size: 10vmax;
+  color: tomato;
+}
+
+.order-success > p {
+  font-size: 2vmax;
+}
+
+.order-success > a {
+  background-color: rgb(50, 50, 50);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 1vmax 3vmax;
+  cursor: pointer;
+  font: 400 1vmax "Roboto";
+  text-decoration: none;
+  margin: 2vmax;
+}
+
+@media screen and (max-width: 600px) {
+  .order-success > a {
+    font-size: 1.8vmax;
+  }
+}

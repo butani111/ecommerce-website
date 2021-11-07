@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import axios from "axios";
 import "./payment.css";
 import {
@@ -16,11 +16,13 @@ import CheckoutSteps from "./CheckoutSteps";
 import { Typography } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
 import { useAlert } from "react-alert";
+import { clearErrors, createOrder } from "../../actions/orderAction";
 
 const Payment = ({ history }) => {
   const orderInfo = JSON.parse(sessionStorage.getItem("orderInfo"));
   const { cartItems, shippingInfo } = useSelector((state) => state.cart);
   const { user } = useSelector((state) => state.user);
+  const { error } = useSelector((state) => state.newOrder);
 
   const dispatch = useDispatch();
   const alert = useAlert();
@@ -31,6 +33,16 @@ const Payment = ({ history }) => {
   const paymentData = {
     //amount should be in 'paisa', so multiply 'Rupee' with 100
     amount: Math.round(orderInfo.totalPrice * 100),
+  };
+
+  const order = {
+    shippingInfo,
+    orderItems: cartItems,
+    // paymentInfo,
+    itemsPrice: orderInfo.subtotal,
+    taxPrice: orderInfo.tax,
+    shippingPrice: orderInfo.shippingCharges,
+    totalPrice: orderInfo.totalPrice,
   };
 
   const submitHandler = async (e) => {
@@ -54,28 +66,39 @@ const Payment = ({ history }) => {
 
       if (!stripe || !elements) return;
 
-      const result = await stripe.confirmCardPayment(client_secret, {
-        payment_method: {
-          card: elements.getElement(CardNumberElement),
-          billing_details: {
-            name: user.name,
-            email: user.email,
-            address: {
-              line1: shippingInfo.address,
-              city: shippingInfo.city,
-              state: shippingInfo.state,
-              postal_code: shippingInfo.pinCode,
-              country: shippingInfo.country,
-            },
-          },
-        },
-      });
+      // const result = await stripe.confirmCardPayment(client_secret, {
+      //   payment_method: {
+      //     card: elements.getElement(CardNumberElement),
+      //     billing_details: {
+      //       name: user.name,
+      //       email: user.email,
+      //       address: {
+      //         line1: shippingInfo.address,
+      //         city: shippingInfo.city,
+      //         state: shippingInfo.state,
+      //         postal_code: shippingInfo.pinCode,
+      //         country: shippingInfo.country,
+      //       },
+      //     },
+      //   },
+      // });
+      // Temp
+      const result = {
+        paymentIntent: { status: "succeeded", id: `payment-${Date.now()}` },
+      };
 
       if (result.error) {
         payBtn.current.disabled = false;
         alert.error(result.error.message);
       } else {
         if (result.paymentIntent.status === "succeeded") {
+          order.paymentInfo = {
+            id: result.paymentIntent.id,
+            status: result.paymentIntent.status,
+          };
+
+          dispatch(createOrder(order));
+
           history.push("/success");
         } else {
           alert.error("Something went wrong while processing payment");
@@ -86,6 +109,13 @@ const Payment = ({ history }) => {
       alert.error(error.response.data.message);
     }
   };
+
+  useEffect(() => {
+    if (error) {
+      alert.error(error);
+      dispatch(clearErrors());
+    }
+  }, [dispatch, error, alert]);
 
   return (
     <>
