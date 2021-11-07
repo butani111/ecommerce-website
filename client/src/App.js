@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import "./App.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import WebFont from "webfontloader";
@@ -22,11 +23,22 @@ import ResetPassword from "./component/User/ResetPassword";
 import Cart from "./component/Cart/Cart";
 import Shipping from "./component/Cart/Shipping";
 import ConfirmOrder from "./component/Cart/ConfirmOrder";
+import Payment from "./component/Cart/Payment";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 
 function App() {
   const { isAuthorizedUser, user } = useSelector((state) => state.user);
+  const [stripeApiKey, setStripeApiKey] = useState(
+    "pk_test_51Jt33pSGSli6IuTUCJkn5NyaeE7IPf3QVFtcsoCN8Ulnp2BtsQ0AJupY1jm5zS6waQUdNqPx0SAZdVyjMdTelVsq00zZmg2H6m"
+  ); // stripe_public_key
 
-  React.useEffect(() => {
+  // async function getStripeApiKey() {
+  //   const { data } = await axios.get("/api/v1/stripeapikey");
+  //   setStripeApiKey(data.stripeApiKey);
+  // }
+
+  useEffect(() => {
     WebFont.load({
       google: {
         families: ["Roboto", "Droid Sans", "Chilanka"],
@@ -34,6 +46,7 @@ function App() {
     });
 
     store.dispatch(loadUser());
+    // getStripeApiKey();
   }, []);
 
   return (
@@ -58,6 +71,12 @@ function App() {
       <Route exact path="/cart" component={Cart} />
       <ProtectedRoute exact path="/shipping" component={Shipping} />
       <ProtectedRoute exact path="/order/confirm" component={ConfirmOrder} />
+
+      {stripeApiKey && (
+        <Elements stripe={loadStripe(stripeApiKey)}>
+          <ProtectedRoute exact path="/process/payment" component={Payment} />
+        </Elements>
+      )}
       <Footer />
     </Router>
   );
