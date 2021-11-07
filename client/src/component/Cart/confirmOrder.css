@@ -1,0 +1,188 @@
+.confirm-order-page {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 6fr 3fr;
+}
+
+.confirm-order-page > div:last-child {
+  border-left: 1px solid black;
+}
+
+.confirm-shipping-area {
+  padding: 5vmax;
+  padding-bottom: 0%;
+}
+
+.confirm-shipping-area > p {
+  font: 400 1.5vmax "Roboto";
+}
+
+.confirm-shipping-area-box,
+.confirm-cart-items-container {
+  margin: 2vmax;
+}
+
+.confirm-shipping-area-box > div {
+  display: flex;
+  margin: 1vmax 0;
+}
+
+.confirm-shipping-area-box > div > p {
+  font: 400 1vmax "Roboto";
+}
+
+.confirm-shipping-area-box > div > span {
+  font: 100 1vmax "Roboto";
+  margin-left: 5px;
+  color: #575757;
+}
+
+.confirm-cart-items {
+  padding: 5vmax;
+  padding-top: 1vmax;
+}
+
+.confirm-cart-items > p {
+  font: 400 1.3vmax "Roboto";
+}
+
+.confirm-cart-items-container {
+  max-height: 20vmax;
+  overflow: auto;
+}
+
+.confirm-cart-items-container > div {
+  height: 3vmax;
+  font: 400 1vmax "Roboto";
+  margin: 2vmax 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.confirm-cart-items-container > div > img {
+  width: 3vmax;
+  max-height: 100%;
+}
+
+.confirm-cart-items-container > div > a {
+  width: 60%;
+  color: #575757;
+  margin: 0 2vmax;
+  text-decoration: none;
+}
+
+.confirm-cart-items-container > div > span {
+  font-size: 1vmax;
+}
+
+.order-summary {
+  padding: 5vmax;
+}
+
+.order-summary > p {
+  width: 100%;
+  font: 400 1.5vmax "Roboto";
+  text-align: center;
+  padding: 1vmax;
+  margin: auto;
+  border-bottom: 1px solid black;
+  box-sizing: border-box;
+}
+
+.order-summary > div > div {
+  font: 300 1vmax "Roboto";
+  margin: 2vmax 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.order-summay-total {
+  font: 300 1vmax "Roboto";
+  padding: 2vmax 0;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid black;
+}
+
+.order-summary > button {
+  display: block;
+  font: 400 1vmax "Roboto";
+  color: white;
+  margin: 1vmax auto;
+  padding: 0.8vmax 2vmax;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  background-color: tomato;
+  transition: all 0.5s;
+}
+.order-summary > button:hover,
+.order-summary > button:active {
+  background-color: rgb(253, 75, 44);
+  transform: scale(1.2);
+}
+
+@media screen and (max-width: 1000px) {
+  .confirm-cart-items-container > div > a {
+    width: 35%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .confirm-order-page {
+    height: unset;
+    grid-template-columns: 1fr;
+  }
+  .confirm-order-page > div:last-child {
+    border-left: none;
+    border-top: 1px solid gray;
+  }
+  .confirm-shipping-area,
+  .confirm-cart-items {
+    padding: 2vmax;
+  }
+  .confirm-shipping-area > p {
+    font-size: 2.5vmax;
+  }
+  .confirm-shipping-area-box > div > p {
+    font-size: 1.5vmax;
+  }
+  .confirm-shipping-area-box > div > span {
+    font-size: 1.5vmax;
+  }
+  .confirm-cart-items > p {
+    font-size: 2vmax;
+  }
+  .confirm-cart-items-container {
+    max-height: 30vmax;
+  }
+  .confirm-cart-items-container > div {
+    font-size: 1.5vmax;
+    height: 5vmax;
+  }
+  .confirm-cart-items-container > div > img {
+    width: 5vmax;
+    max-height: 100%;
+  }
+  .confirm-cart-items-container > div > a {
+    margin: 0;
+    width: 40%;
+  }
+  .confirm-cart-items-container > div > span {
+    font-size: 1.5vmax;
+  }
+  .order-summary > p {
+    font-size: 2.3vmax;
+  }
+  .order-summary > div > div {
+    font-size: 1.7vmax;
+  }
+  .order-summay-total {
+    font-size: 1.7vmax;
+  }
+  .order-summary > button {
+    font-size: 1.8vmax;
+    padding: 1vmax 2vmax;
+    margin-top: 3vmax;
+  }
+}
