@@ -18,8 +18,8 @@ input[type="number"] {
 }
 
 .text-red {
-  color: red;
+  color: red !important;
 }
 .text-green {
-  color: green;
+  color: green !important;
 }

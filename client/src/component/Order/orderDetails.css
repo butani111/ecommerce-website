@@ -1,0 +1,59 @@
+.order-details-container {
+  padding: 5vmax;
+  padding-bottom: 0%;
+}
+
+.order-details-container > h1 {
+  font: 300 3vmax "Roboto";
+  margin: 2vmax 0;
+  color: black;
+  overflow: auto;
+  text-shadow: 3px 5px rgb(161, 161, 161);
+}
+
+.order-details-container > p {
+  font: 400 1.8vmax "Roboto";
+}
+
+.order-details-container-box {
+  margin: 2vmax;
+}
+
+.order-details-container-box > div {
+  display: flex;
+  margin: 1vmax 0;
+}
+
+.order-details-container-box > div > p {
+  font: 400 1vmax "Roboto";
+}
+
+.order-details-container-box > div > span {
+  font: 100 1vmax "Roboto";
+  margin: 0 0.5vmax;
+}
+
+.order-details-cart-items {
+  padding: 2vmax 5vmax;
+  border-top: 1px solid gray;
+}
+
+.order-details-cart-items > p {
+  font: 400 1.8vmax "Roboto";
+}
+
+@media screen and (max-width: 600px) {
+  .order-details-container > h1 {
+    font-size: 2vmax;
+  }
+  .order-details-container > p {
+    font-size: 2.2vmax;
+  }
+  .order-details-container-box > div > p,
+  .order-details-container-box > div > span {
+    font-size: 1.7vmax;
+  }
+  .order-details-cart-items > p {
+    font-size: 2.2vmax;
+  }
+}
