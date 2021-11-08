@@ -39,6 +39,8 @@
 
 .detailsBlock-2 {
   width: 70%;
+  font: 300 1.1vmax cursive;
+  color: gray;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -46,12 +48,6 @@
   border-bottom: 1px solid rgba(165, 161, 161, 0.7);
   margin: 1vmax 0;
   padding: 0.5vmax;
-}
-
-.detailsBlock-2 > span {
-  font: 200 0.9vmax cursive;
-  color: gray;
-  margin: 0 1vmax;
 }
 
 .detailsBlock-3 {
@@ -141,10 +137,22 @@
   outline: none;
   transition: all 0.5s;
 }
-
 .submit-review:hover {
   background-color: #b13127;
   transform: scale(1.1);
+}
+
+.submit-review-dialog {
+  display: flex;
+  flex-direction: column;
+}
+
+.submit-review-dialog-textarea {
+  font: 300 1vmax "Roboto";
+  margin: 1vmax;
+  padding: 1vmax;
+  border: 1px solid gray;
+  outline: none;
 }
 
 .product-reviews-heading {
@@ -181,7 +189,7 @@
 .review-card > p {
   font: 600 1vmax "Roboto";
 }
-.review-card > span {
+.review-card-comment {
   font: 300 0.8vmax cursive;
   color: rgb(66, 64, 64);
 }

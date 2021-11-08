@@ -86,7 +86,7 @@
   justify-content: flex-start;
   align-items: center;
 }
-.product-card > div > span {
+.product-card-review {
   margin: 0.5vmax;
   font: 300 0.8vmax "Roboto";
 }
