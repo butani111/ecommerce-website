@@ -29,12 +29,13 @@ import { loadStripe } from "@stripe/stripe-js";
 import OrderSuccess from "./component/Cart/OrderSuccess";
 import MyOrders from "./component/Order/MyOrders";
 import OrderDetails from "./component/Order/OrderDetails";
+import Dashboard from "./component/Admin/Dashboard";
 
 function App() {
   const { isAuthorizedUser, user } = useSelector((state) => state.user);
-  const [stripeApiKey, setStripeApiKey] = useState(
-    "pk_test_51Jt33pSGSli6IuTUCJkn5NyaeE7IPf3QVFtcsoCN8Ulnp2BtsQ0AJupY1jm5zS6waQUdNqPx0SAZdVyjMdTelVsq00zZmg2H6m"
-  ); // stripe_public_key
+  // const [stripeApiKey, setStripeApiKey] = useState(""); // stripe_public_key
+  const stripeApiKey =
+    "pk_test_51Jt33pSGSli6IuTUCJkn5NyaeE7IPf3QVFtcsoCN8Ulnp2BtsQ0AJupY1jm5zS6waQUdNqPx0SAZdVyjMdTelVsq00zZmg2H6m";
 
   // async function getStripeApiKey() {
   //   const { data } = await axios.get("/api/v1/stripeapikey");
@@ -84,6 +85,13 @@ function App() {
       <ProtectedRoute exact path="/success" component={OrderSuccess} />
       <ProtectedRoute exact path="/orders" component={MyOrders} />
       <ProtectedRoute exact path="/orders/:id" component={OrderDetails} />
+
+      <ProtectedRoute
+        exact
+        path="/admin/dashboard"
+        component={Dashboard}
+        isAdmin={true}
+      />
       <Footer />
     </Router>
   );

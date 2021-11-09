@@ -20,7 +20,7 @@ const UserOptions = ({ user }) => {
 
   const { cartItems } = useSelector((state) => state.cart);
 
-  const dashboard = () => history.push("/dashboard");
+  const dashboard = () => history.push("/admin/dashboard");
   const orders = () => history.push("/orders");
   const account = () => history.push("/account");
   const cart = () => history.push("/cart");
