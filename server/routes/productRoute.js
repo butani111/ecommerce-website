@@ -10,11 +10,16 @@ const {
   createProductReview,
   getProductReviews,
   deleteReview,
+  getAdminProducts,
 } = require("../controllers/productController");
 const router = express.Router();
 
 router.route("/products").get(getAllProducts);
 router.route("/product/:id").get(getProductDetails);
+
+router
+  .route("/admin/products")
+  .get(isAuthorizedUser, authorizedRoles("admin"), getAdminProducts);
 
 router
   .route("/admin/product/new")
