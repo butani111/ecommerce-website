@@ -1,0 +1,141 @@
+.new-product-container {
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(233, 231, 231);
+  border-left: 1px solid gray;
+  box-sizing: border-box;
+}
+
+.new-product-form {
+  width: 50%;
+  height: 90%;
+  margin: auto;
+  display: flex;
+  justify-self: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.new-product-form > h1 {
+  width: 50%;
+  font: 700 1.5vmax "Droid Sans";
+  text-align: center;
+  margin: 1vmax auto;
+  padding: 1vmax 0;
+  border-bottom: 2px solid gray;
+}
+
+.new-product-form > div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.new-product-form > div > input,
+.new-product-form > div > select,
+.new-product-form > div > textarea {
+  width: 100%;
+  font: 300 1vmax cursive;
+  padding: 1vmax 4vmax;
+  padding-right: 1vmax;
+  margin: 1vmax auto;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+  border-radius: 5px;
+  outline: none;
+}
+
+.new-product-form > div > svg {
+  font-size: 1.5vmax;
+  color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  transform: translateX(1vmax);
+}
+
+#new-product-form-file > input {
+  display: flex;
+  padding: 0;
+}
+
+#new-product-form-file > input::file-selector-button {
+  font: 400 1vmax cursive;
+  color: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 5vh;
+  border: none;
+  margin: 0%;
+  padding: 0 1vmax;
+  cursor: pointer;
+  transition: all 0.5s;
+  background-color: white;
+  /* z-index: 2; */
+}
+
+#new-product-form-image {
+  width: 100%;
+  overflow: auto;
+}
+#new-product-form-image > img {
+  width: 5vmax;
+  margin: 5px;
+}
+
+#new-product-btn {
+  width: 100%;
+  font: 300 1vmax "Roboto";
+  color: white;
+  padding: 0.8vmax;
+  border: none;
+  border-radius: 5px;
+  background-color: tomato;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.5s;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+#new-product-btn:hover {
+  background-color: rgb(209, 77, 54);
+  transform: scale(1.05);
+}
+
+@media screen and (max-width: 830px) {
+  .new-product-form > div > input {
+    font-size: 1.3vmax;
+  }
+  #new-product-form-file > input::file-selector-button {
+    font-size: 1.5vmax;
+    height: 4vh;
+  }
+  #new-product-btn {
+    font-size: 1.5vmax;
+    padding: 1.2vmax;
+  }
+}
+@media screen and (max-width: 600px) {
+  .new-product-container {
+    border-left: none;
+    height: unset;
+    margin-bottom: 20vmax;
+  }
+  .new-product-form {
+    width: 80%;
+  }
+  .new-product-form > h1 {
+    width: 70%;
+    font-size: 2vmax;
+  }
+  .new-product-form > div > input {
+    font-size: 1.7vmax;
+  }
+  .new-product-form > div > svg {
+    font-size: 2vmax;
+  }
+  #new-product-btn {
+    font-size: 2vmax;
+  }
+}
