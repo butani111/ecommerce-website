@@ -15,7 +15,13 @@ const ProductCard = ({ product }) => {
       className="product-card"
       key={product._id}
     >
-      <img src={product.images[0].url} alt={product.name} />
+      {
+        //show first image
+        product.images &&
+          product.images.map(
+            (item, i) => i === 0 && <img src={item.url} alt={product.name} />
+          )
+      }
       <p>{product.name}</p>
       <div>
         <Rating {...options} />
