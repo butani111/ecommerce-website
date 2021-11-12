@@ -9,21 +9,42 @@ import { Link } from "react-router-dom";
 import { Button } from "@material-ui/core";
 import MetaData from "../layout/MetaData";
 import Sidebar from "./Sidebar";
-import { clearErrors, getAdminProduct } from "../../actions/productAction";
+import {
+  clearErrors,
+  deleteProduct,
+  getAdminProduct,
+} from "../../actions/productAction";
+import { DELETE_PRODUCT_RESET } from "../../constants/productConstants";
 
-const ProductList = () => {
+const ProductList = ({ history }) => {
   const { products, error } = useSelector((state) => state.products);
+  const { error: deleteError, isDeleted } = useSelector(
+    (state) => state.product
+  );
 
   const dispatch = useDispatch();
   const alert = useAlert();
 
+  const deleteProductHandler = (id) => {
+    dispatch(deleteProduct(id));
+  };
+
   useEffect(() => {
     if (error) {
       alert.error(error);
-      dispatch(clearErrors);
+      dispatch(clearErrors());
+    }
+    if (deleteError) {
+      alert.error(deleteError);
+      dispatch(clearErrors());
+    }
+    if (isDeleted) {
+      alert.success("Product Deleted Successfully");
+      history.push("/admin/dashboard");
+      dispatch({ type: DELETE_PRODUCT_RESET });
     }
     dispatch(getAdminProduct());
-  }, [dispatch, error, alert]);
+  }, [dispatch, error, alert, history, deleteError, isDeleted]);
 
   const columns = [
     { field: "id", headerName: "Product ID", minWidth: 200, flex: 0.5 },
@@ -55,7 +76,11 @@ const ProductList = () => {
             <Link to={`/admin/product/${params.getValue(params.id, "id")}`}>
               <EditIcon />
             </Link>
-            <Button>
+            <Button
+              onClick={() => {
+                deleteProductHandler(params.getValue(params.id, "id"));
+              }}
+            >
               <DeleteIcon />
             </Button>
           </>
