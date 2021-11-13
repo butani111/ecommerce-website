@@ -1,3 +1,6 @@
+/* Note: This file also works for UpdateProduct page  */
+/* Note: This file also works for ProcessOrder page  */
+
 .new-product-container {
   width: 100%;
   height: 100vh;
@@ -6,7 +9,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(233, 231, 231);
+  background-color: white;
   border-left: 1px solid gray;
   box-sizing: border-box;
 }

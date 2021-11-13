@@ -20,7 +20,7 @@ const OrderDetails = ({ match }) => {
       dispatch(clearErrors());
     }
     dispatch(getOrderDetails(match.params.id));
-  }, [dispatch, error, alert]);
+  }, [dispatch, error, alert, match.params.id]);
 
   return (
     <>
