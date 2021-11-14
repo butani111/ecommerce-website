@@ -1,6 +1,23 @@
-.update-order-page {
+.process-order-page {
   height: 100vh;
   width: 100%;
-  display: grid;
-  grid-template-columns: 6fr 3fr;
+}
+
+.process-order-page .confirm-shipping-area {
+  padding-left: 5vmax;
+  padding-right: 5vmax;
+}
+
+.process-order-form {
+  width: 80%;
+  margin-top: 12vmax;
+}
+
+.process-order-form > h1 {
+  width: 80%;
+}
+
+.process-order-form > div,
+.process-order-form > button {
+  margin: 1vmax auto;
 }

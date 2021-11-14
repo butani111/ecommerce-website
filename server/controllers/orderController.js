@@ -72,9 +72,14 @@ exports.updateOrder = catchAsyncError(async (req, res, next) => {
     return next(new ErrorHandler("Order has been delivered already", 400));
   }
 
-  order.orderItems.forEach(async (ordr) => {
-    await updateStock(ordr.product, ordr.quantity);
-  });
+  if (req.body.status === "Shipped") {
+    order.orderItems.forEach(async (ordr) => {
+      if (ordr.product.stock < ordr.quantity) {
+        return new ErrorHandler(`Product's stock is not enough`, 400);
+      }
+      await updateStock(ordr.product, ordr.quantity);
+    });
+  }
 
   order.orderStatus = req.body.status;
 

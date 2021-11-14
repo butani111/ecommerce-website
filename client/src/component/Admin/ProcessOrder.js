@@ -55,10 +55,15 @@ const ProcessOrder = ({ history, match }) => {
       <div className="dashboard">
         <Sidebar />
         <div className="new-product-container">
-          {loading ? (
+          {loading || !order ? (
             <Loader />
           ) : (
-            <div className="confirm-order-page update-order-page">
+            <div
+              className="confirm-order-page process-order-page"
+              style={{
+                display: order.orderStatus === "Delivered" ? "block" : "grid",
+              }}
+            >
               <div>
                 <div className="confirm-shipping-area">
                   <Typography>Shipping Info</Typography>
@@ -141,21 +146,28 @@ const ProcessOrder = ({ history, match }) => {
                 </div>
               </div>
 
-              <div>
+              <div
+                style={{
+                  display: order.orderStatus === "Delivered" ? "none" : "block",
+                }}
+              >
                 <form
-                  className="new-product-form new-product-form" /* here */
+                  className="new-product-form process-order-form"
                   encType="multimedia/form-data"
                   onSubmit={updateOrderSubmitHandler}
-                  style={{ width: "80%", justifyContent: "center" }}
                 >
-                  <h1 style={{ width: "100%" }}>Process Order</h1>
+                  <h1>Process Order</h1>
 
                   <div>
                     <AccountTreeIcon />
                     <select onChange={(e) => setStatus(e.target.value)}>
                       <option value="">Choose Category</option>
-                      <option value="Shipped">Shipped</option>
-                      <option value="Delivered">Delivered</option>
+                      {order.orderStatus === "Processing" && (
+                        <option value="Shipped">Shipped</option>
+                      )}
+                      {order.orderStatus === "Shipped" && (
+                        <option value="Delivered">Delivered</option>
+                      )}
                     </select>
                   </div>
 
@@ -166,7 +178,7 @@ const ProcessOrder = ({ history, match }) => {
                       loading ? true : false || status === "" ? true : false
                     }
                   >
-                    Create
+                    Done
                   </Button>
                 </form>
               </div>
