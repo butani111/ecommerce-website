@@ -246,6 +246,9 @@ exports.deleteUserByAdmin = catchAsyncError(async (req, res, next) => {
     );
   }
 
+  // delete avatar image
+  await cloudinary.v2.uploader.destroy(user.avatar.public_id);
+
   await user.remove();
   res.status(200).json({ success: true, message: "User Deleted Successfully" });
 });
