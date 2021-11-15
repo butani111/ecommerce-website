@@ -11,7 +11,7 @@ import Products from "./component/Product/Products";
 import Search from "./component/Product/Search";
 import LoginSignup from "./component/User/LoginSignup";
 import store from "./Store";
-import { loadUser } from "./actions/userAction";
+import { loadUser, updateUser } from "./actions/userAction";
 import UserOptions from "./component/layout/Header/UserOptions";
 import { useSelector } from "react-redux";
 import Profile from "./component/User/Profile";
@@ -36,6 +36,7 @@ import UpdateProduct from "./component/Admin/UpdateProduct";
 import OrderList from "./component/Admin/OrderList";
 import ProcessOrder from "./component/Admin/ProcessOrder";
 import UserList from "./component/Admin/UserList";
+import UpdateUser from "./component/Admin/UpdateUser";
 
 function App() {
   const { isAuthorizedUser, user } = useSelector((state) => state.user);
@@ -132,6 +133,12 @@ function App() {
         exact
         path="/admin/users"
         component={UserList}
+        isAdmin={true}
+      />
+      <ProtectedRoute
+        exact
+        path="/admin/user/:id"
+        component={UpdateUser}
         isAdmin={true}
       />
       <Footer />
