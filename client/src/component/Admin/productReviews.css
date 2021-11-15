@@ -1,0 +1,22 @@
+.product-reviews-container {
+  height: unset;
+}
+
+.product-reviews-form {
+  height: unset;
+  width: 40%;
+  margin: 0 auto;
+  margin-bottom: 5vmax;
+  padding: 0 auto;
+}
+
+.no-reviews-found {
+  text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+  .product-reviews-form {
+    width: 80%;
+    margin-bottom: 10vmax;
+  }
+}
