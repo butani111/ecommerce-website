@@ -1,0 +1,18 @@
+.contact-page-container {
+  height: 70vh;
+}
+
+.contact-page-form {
+  width: 50%;
+  margin-top: 10vmax;
+}
+
+.contact-page-form > div {
+  margin-bottom: 2vmax;
+}
+
+@media screen and (max-width: 600px) {
+  .contact-page-form {
+    width: 80%;
+  }
+}

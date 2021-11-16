@@ -38,6 +38,8 @@ import ProcessOrder from "./component/Admin/ProcessOrder";
 import UserList from "./component/Admin/UserList";
 import UpdateUser from "./component/Admin/UpdateUser";
 import ProductReviews from "./component/Admin/ProductReviews";
+import AboutUs from "./component/pages/AboutUs";
+import ContactPage from "./component/pages/ContactPage";
 
 function App() {
   const { isAuthorizedUser, user } = useSelector((state) => state.user);
@@ -148,6 +150,8 @@ function App() {
         component={ProductReviews}
         isAdmin={true}
       />
+      <Route exact path="/about" component={AboutUs} />
+      <Route exact path="/contact" component={ContactPage} />
       <Footer />
     </Router>
   );
