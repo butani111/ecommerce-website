@@ -5,6 +5,10 @@
   font: "Roboto";
 }
 
+/* body {
+  cursor: url("./images/cursor.png"), auto;
+} */
+
 /* Hide increment arrow from number input  */
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,

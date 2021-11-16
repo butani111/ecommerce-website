@@ -1,5 +1,5 @@
 import React from "react";
-import MetaData from "../layout/MetaData";
+import MetaData from "../MetaData";
 
 import "./aboutUs.css";
 

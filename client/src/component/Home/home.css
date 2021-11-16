@@ -1,5 +1,7 @@
 .banner {
-  background-image: linear-gradient(to right, #0ff080, #4e3cf0);
+  background: #fff url("../../images/cover.jfif") no-repeat center;
+  background-size: cover;
+  /* background-image: linear-gradient(to right, #0ff080, #4e3cf0); */
   height: 100vmin;
   text-align: center;
   display: flex;
@@ -28,7 +30,8 @@
   font: 500 1vmax "Roboto";
 }
 .banner > a > button:hover {
-  background-color: rgb(138, 210, 243);
+  transform: scale(1.1);
+  /* background-color: rgb(138, 210, 243); */
 }
 
 .banner::after {
