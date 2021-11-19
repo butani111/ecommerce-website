@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-import "./loginSignup.css";
-import MailOutlineIcon from "@material-ui/icons/MailOutline";
-import FaceIcon from "@material-ui/icons/Face";
 import { useDispatch, useSelector } from "react-redux";
-import { clearErrors, loadUser, updateProfile } from "../../actions/userAction";
 import { useAlert } from "react-alert";
 import Loader from "../layout/Loader/Loader";
-import { UPDATE_PROFILE_RESET } from "../../constants/userConstants";
 import MetaData from "../layout/MetaData";
+import FaceIcon from "@material-ui/icons/Face";
+import MailOutlineIcon from "@material-ui/icons/MailOutline";
+import { clearErrors, loadUser, updateProfile } from "../../actions/userAction";
+import { UPDATE_PROFILE_RESET } from "../../constants/userConstants";
+// import "./loginSignup.css";
 
 const UpdateProfile = ({ history }) => {
   const dispatch = useDispatch();
@@ -88,6 +88,7 @@ const UpdateProfile = ({ history }) => {
                     onChange={(e) => setName(e.target.value)}
                   />
                 </div>
+
                 <div className="signup-email">
                   <MailOutlineIcon />
                   <input
@@ -99,6 +100,7 @@ const UpdateProfile = ({ history }) => {
                     onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
+
                 <div id="signup-image">
                   <img src={avatarPreview} alt="Avatar Preview" />
                   <input
@@ -108,6 +110,7 @@ const UpdateProfile = ({ history }) => {
                     onChange={updateProfileDataChange}
                   />
                 </div>
+
                 <input
                   type="submit"
                   value="Update Profile"

@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import "./header.css";
-import { SpeedDial, SpeedDialAction } from "@material-ui/lab";
-import DashboardIcon from "@material-ui/icons/Dashboard";
-import PersonIcon from "@material-ui/icons/Person";
-import ExitToAppIcon from "@material-ui/icons/ExitToApp";
-import ListAltIcon from "@material-ui/icons/ListAlt";
-import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
-import Backdrop from "@material-ui/core/Backdrop";
-import { useDispatch, useSelector } from "react-redux";
 import { useAlert } from "react-alert";
 import { useHistory } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../../actions/userAction";
+import { SpeedDial, SpeedDialAction } from "@material-ui/lab";
+import Backdrop from "@material-ui/core/Backdrop";
+import PersonIcon from "@material-ui/icons/Person";
+import ListAltIcon from "@material-ui/icons/ListAlt";
+import DashboardIcon from "@material-ui/icons/Dashboard";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import "./header.css";
 
 const UserOptions = ({ user }) => {
   const dispatch = useDispatch();

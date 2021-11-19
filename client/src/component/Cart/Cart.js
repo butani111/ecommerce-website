@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import "./cart.css";
-import CartItemCard from "./CartItemCard";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addItemsToCart, removeItemsFromCart } from "../../actions/cartAction";
 import { Link } from "react-router-dom";
+import CartItemCard from "./CartItemCard";
+import MetaData from "../layout/MetaData";
 import { Typography } from "@material-ui/core";
 import RemoveShoppingCartIcon from "@material-ui/icons/RemoveShoppingCart";
-import MetaData from "../layout/MetaData";
+import { addItemsToCart, removeItemsFromCart } from "../../actions/cartAction";
+import "./cart.css";
 
 const Cart = ({ history }) => {
   const dispatch = useDispatch();

@@ -4,6 +4,7 @@ import {
   SAVE_SHIPPING_INFO,
 } from "../constants/cartConstants";
 
+// Cart Reducer
 export const cartReducer = (
   state = { cartItems: [], shippingInfo: {} },
   action

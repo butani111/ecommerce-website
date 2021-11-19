@@ -22,7 +22,7 @@ import {
   CLEAR_ERRORS,
 } from "../constants/orderConstants";
 
-// New Order
+// New Order Reducer
 export const newOrderReducer = (state = {}, action) => {
   switch (action.type) {
     case CREATE_ORDER_REQUEST:
@@ -54,7 +54,7 @@ export const newOrderReducer = (state = {}, action) => {
   }
 };
 
-// My Orders
+// My Orders Reducer
 export const myOrdersReducer = (state = { orders: [] }, action) => {
   switch (action.type) {
     case MY_ORDERS_REQUEST:
@@ -85,7 +85,7 @@ export const myOrdersReducer = (state = { orders: [] }, action) => {
   }
 };
 
-// All Orders
+// All Orders Reducer
 export const allOrdersReducer = (state = { orders: [] }, action) => {
   switch (action.type) {
     case ALL_ORDERS_REQUEST:
@@ -116,7 +116,7 @@ export const allOrdersReducer = (state = { orders: [] }, action) => {
   }
 };
 
-// Order (Update, Delete)
+// Order (Update, Delete) Reducer
 export const orderReducer = (state = {}, action) => {
   switch (action.type) {
     case UPDATE_ORDER_REQUEST:
@@ -166,7 +166,7 @@ export const orderReducer = (state = {}, action) => {
   }
 };
 
-// Get Order Details
+// Get Order Details Reducer
 export const orderDetailsReducer = (state = { order: {} }, action) => {
   switch (action.type) {
     case ORDER_DETAILS_REQUEST:

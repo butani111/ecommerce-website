@@ -5,15 +5,15 @@ import Loader from "../layout/Loader/Loader";
 import MetaData from "../layout/MetaData";
 import Sidebar from "./Sidebar";
 import { Button } from "@material-ui/core";
-import { UPDATE_USER_RESET } from "../../constants/userConstants";
+import PersonIcon from "@material-ui/icons/Person";
+import MailOutlineIcon from "@material-ui/icons/MailOutline";
+import VerifiedUserIcon from "@material-ui/icons/VerifiedUser";
 import {
   clearErrors,
   getUserDetails,
   updateUser,
 } from "../../actions/userAction";
-import MailOutlineIcon from "@material-ui/icons/MailOutline";
-import PersonIcon from "@material-ui/icons/Person";
-import VerifiedUserIcon from "@material-ui/icons/VerifiedUser";
+import { UPDATE_USER_RESET } from "../../constants/userConstants";
 // import "./newProduct.css";
 
 const UpdateUser = ({ history, match }) => {
@@ -33,8 +33,8 @@ const UpdateUser = ({ history, match }) => {
 
   const updateUserSubmitHandler = (e) => {
     e.preventDefault();
-    const myForm = new FormData();
 
+    const myForm = new FormData();
     myForm.set("name", name);
     myForm.set("email", email);
     myForm.set("role", role);
@@ -66,16 +66,7 @@ const UpdateUser = ({ history, match }) => {
       history.push("/admin/users");
       dispatch({ type: UPDATE_USER_RESET });
     }
-  }, [
-    dispatch,
-    history,
-    error,
-    alert,
-    user,
-    updateError,
-    isUpdated,
-    match.params.id,
-  ]);
+  }, [dispatch, history, error, alert, user, updateError, isUpdated, userId]);
 
   return (
     <>
@@ -101,6 +92,7 @@ const UpdateUser = ({ history, match }) => {
                   onChange={(e) => setName(e.target.value)}
                 />
               </div>
+
               <div>
                 <MailOutlineIcon />
                 <input
@@ -111,6 +103,7 @@ const UpdateUser = ({ history, match }) => {
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
+
               <div>
                 <VerifiedUserIcon />
                 <select value={role} onChange={(e) => setRole(e.target.value)}>

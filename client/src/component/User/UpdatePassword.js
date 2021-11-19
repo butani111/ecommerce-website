@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
-import "./loginSignup.css";
 import { useDispatch, useSelector } from "react-redux";
-import { clearErrors, updatePassword } from "../../actions/userAction";
 import { useAlert } from "react-alert";
 import Loader from "../layout/Loader/Loader";
-import { UPDATE_PASSWORD_RESET } from "../../constants/userConstants";
 import MetaData from "../layout/MetaData";
 import LockIcon from "@material-ui/icons/Lock";
-import LockOpenIcon from "@material-ui/icons/LockOpen";
 import VpnKeyIcon from "@material-ui/icons/VpnKey";
+import LockOpenIcon from "@material-ui/icons/LockOpen";
+import { UPDATE_PASSWORD_RESET } from "../../constants/userConstants";
+import { clearErrors, updatePassword } from "../../actions/userAction";
+// import "./loginSignup.css";
 
 const UpdatePassword = ({ history }) => {
   const dispatch = useDispatch();
@@ -64,6 +64,7 @@ const UpdatePassword = ({ history }) => {
                     onChange={(e) => setOldPassword(e.target.value)}
                   />
                 </div>
+
                 <div className="login-password">
                   <LockOpenIcon />
                   <input
@@ -74,6 +75,7 @@ const UpdatePassword = ({ history }) => {
                     onChange={(e) => setNewPassword(e.target.value)}
                   />
                 </div>
+
                 <div className="login-password">
                   <LockIcon />
                   <input

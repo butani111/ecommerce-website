@@ -1,20 +1,20 @@
 import React, { useEffect } from "react";
-import { DataGrid } from "@material-ui/data-grid";
-import "./productList.css";
-import EditIcon from "@material-ui/icons/Edit";
-import DeleteIcon from "@material-ui/icons/Delete";
 import { useDispatch, useSelector } from "react-redux";
-import { useAlert } from "react-alert";
 import { Link } from "react-router-dom";
-import { Button } from "@material-ui/core";
+import { useAlert } from "react-alert";
 import MetaData from "../layout/MetaData";
 import Sidebar from "./Sidebar";
+import { DataGrid } from "@material-ui/data-grid";
+import { Button } from "@material-ui/core";
+import EditIcon from "@material-ui/icons/Edit";
+import DeleteIcon from "@material-ui/icons/Delete";
 import {
   deleteOrder,
   getAllOrders,
   clearErrors,
 } from "../../actions/orderAction";
 import { DELETE_ORDER_RESET } from "../../constants/orderConstants";
+// import "./productList.css";
 
 const OrderList = ({ history }) => {
   const { orders, error } = useSelector((state) => state.allOrders);
@@ -96,8 +96,8 @@ const OrderList = ({ history }) => {
       },
     },
   ];
-  const rows = [];
 
+  const rows = [];
   orders &&
     orders.forEach((item) => {
       rows.push({
@@ -114,6 +114,7 @@ const OrderList = ({ history }) => {
 
       <div className="dashboard">
         <Sidebar />
+
         <div className="product-list-container">
           <h1 id="product-list-heading">ALL ORDERS</h1>
           <DataGrid

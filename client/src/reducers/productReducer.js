@@ -34,7 +34,7 @@ import {
   CLEAR_ERROR,
 } from "../constants/productConstants";
 
-// Products Reducer
+// Products Reducer (Get all products)
 export const productsReducer = (state = { products: [] }, action) => {
   switch (action.type) {
     case ALL_PRODUCT_REQUEST:
@@ -107,7 +107,7 @@ export const newProductReducer = (state = { product: {} }, action) => {
   }
 };
 
-// Product Reducer
+// Product Reducer (Delete / Update)
 export const productReducer = (state = {}, action) => {
   switch (action.type) {
     case DELETE_PRODUCT_REQUEST:
@@ -219,7 +219,7 @@ export const newReviewReducer = (state = {}, action) => {
   }
 };
 
-// Product Reviews Reducer
+// Product Reviews Reducer (Get all reviews)
 export const productReviewsReducer = (state = { reviews: [] }, action) => {
   switch (action.type) {
     case ALL_REVIEW_REQUEST:
@@ -249,7 +249,7 @@ export const productReviewsReducer = (state = { reviews: [] }, action) => {
   }
 };
 
-// Review Reducer
+// Review Reducer (Delete review)
 export const reviewReducer = (state = {}, action) => {
   switch (action.type) {
     case DELETE_REVIEW_REQUEST:

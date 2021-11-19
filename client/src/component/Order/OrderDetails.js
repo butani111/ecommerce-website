@@ -1,11 +1,11 @@
-import { Typography } from "@material-ui/core";
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useAlert } from "react-alert";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { clearErrors, getOrderDetails } from "../../actions/orderAction";
 import Loader from "../layout/Loader/Loader";
 import MetaData from "../layout/MetaData";
+import { Typography } from "@material-ui/core";
+import { clearErrors, getOrderDetails } from "../../actions/orderAction";
 import "./orderDetails.css";
 
 const OrderDetails = ({ match }) => {
@@ -35,6 +35,7 @@ const OrderDetails = ({ match }) => {
                 Order #{order && order._id}
               </Typography>
               <Typography>Shipping Info</Typography>
+
               <div className="order-details-container-box">
                 <div>
                   <p>Name:</p>

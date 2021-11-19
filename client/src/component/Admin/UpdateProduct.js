@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from "react";
-import MetaData from "../layout/MetaData";
-import "./newProduct.css";
-import Sidebar from "./Sidebar";
-import AccountTreeIcon from "@material-ui/icons/AccountTree";
-import DescriptionIcon from "@material-ui/icons/Description";
-import StorageIcon from "@material-ui/icons/Storage";
-import SpellcheckIcon from "@material-ui/icons/Spellcheck";
-import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
 import { useDispatch, useSelector } from "react-redux";
 import { useAlert } from "react-alert";
 import { Button } from "@material-ui/core";
-import { UPDATE_PRODUCT_RESET } from "../../constants/productConstants";
+import MetaData from "../layout/MetaData";
+import Sidebar from "./Sidebar";
+import StorageIcon from "@material-ui/icons/Storage";
+import SpellcheckIcon from "@material-ui/icons/Spellcheck";
+import AccountTreeIcon from "@material-ui/icons/AccountTree";
+import DescriptionIcon from "@material-ui/icons/Description";
+import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
 import {
   clearErrors,
   updateProduct,
   getProductDetails,
 } from "../../actions/productAction";
+import { UPDATE_PRODUCT_RESET } from "../../constants/productConstants";
+import "./newProduct.css";
 
 const categories = [
   "All",
@@ -51,8 +51,8 @@ const UpdateProduct = ({ history, match }) => {
 
   const updateProductSubmitHandler = (e) => {
     e.preventDefault();
-    const myForm = new FormData();
 
+    const myForm = new FormData();
     myForm.set("name", name);
     myForm.set("price", price);
     myForm.set("description", description);
@@ -142,6 +142,7 @@ const UpdateProduct = ({ history, match }) => {
                 onChange={(e) => setName(e.target.value)}
               />
             </div>
+
             <div>
               <AttachMoneyIcon />
               <input
@@ -152,6 +153,7 @@ const UpdateProduct = ({ history, match }) => {
                 onChange={(e) => setPrice(e.target.value)}
               />
             </div>
+
             <div>
               <DescriptionIcon />
               <textarea
@@ -162,6 +164,7 @@ const UpdateProduct = ({ history, match }) => {
                 onChange={(e) => setDescription(e.target.value)}
               />
             </div>
+
             <div>
               <AccountTreeIcon />
               <select
@@ -176,6 +179,7 @@ const UpdateProduct = ({ history, match }) => {
                 ))}
               </select>
             </div>
+
             <div>
               <StorageIcon />
               <input
@@ -186,6 +190,7 @@ const UpdateProduct = ({ history, match }) => {
                 onChange={(e) => setStock(e.target.value)}
               />
             </div>
+
             <div id="new-product-form-file">
               <input
                 type="file"
@@ -195,12 +200,14 @@ const UpdateProduct = ({ history, match }) => {
                 onChange={updateProductImagesChange}
               />
             </div>
+
             <div id="new-product-form-image">
               {oldImages &&
                 oldImages.map((image, i) => (
                   <img key={i} src={image.url} alt="Old Product Preview" />
                 ))}
             </div>
+
             <div id="new-product-form-image">
               {imagesPreview.map((image, i) => (
                 <img key={i} src={image} alt="Product Preview" />

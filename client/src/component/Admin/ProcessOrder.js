@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { useAlert } from "react-alert";
+import Loader from "../layout/Loader/Loader";
 import MetaData from "../layout/MetaData";
-import { Button, Typography } from "@material-ui/core";
 import Sidebar from "./Sidebar";
+import { Button, Typography } from "@material-ui/core";
+import AccountTreeIcon from "@material-ui/icons/AccountTree";
 import {
   getOrderDetails,
   clearErrors,
   updateOrder,
 } from "../../actions/orderAction";
-import { useAlert } from "react-alert";
-import Loader from "../layout/Loader/Loader";
-import AccountTreeIcon from "@material-ui/icons/AccountTree";
 import { UPDATE_ORDER_RESET } from "../../constants/orderConstants";
 import "./processOrder.css";
 
-const ProcessOrder = ({ history, match }) => {
+const ProcessOrder = ({ match }) => {
   const { order, loading, error } = useSelector((state) => state.orderDetails);
   const { error: updateError, isUpdated } = useSelector((state) => state.order);
 
@@ -23,11 +23,10 @@ const ProcessOrder = ({ history, match }) => {
   const alert = useAlert();
   const [status, setStatus] = useState("");
 
-  // const updateOrderSubmitHandler = () => {};
   const updateOrderSubmitHandler = (e) => {
     e.preventDefault();
-    const myForm = new FormData();
 
+    const myForm = new FormData();
     myForm.set("status", status);
 
     dispatch(updateOrder(match.params.id, myForm));

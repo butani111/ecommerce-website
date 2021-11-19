@@ -1,16 +1,16 @@
 import React, { useEffect } from "react";
-import { DataGrid } from "@material-ui/data-grid";
-import "./productList.css";
-import EditIcon from "@material-ui/icons/Edit";
-import DeleteIcon from "@material-ui/icons/Delete";
 import { useDispatch, useSelector } from "react-redux";
-import { useAlert } from "react-alert";
 import { Link } from "react-router-dom";
-import { Button } from "@material-ui/core";
+import { useAlert } from "react-alert";
 import MetaData from "../layout/MetaData";
 import Sidebar from "./Sidebar";
+import { Button } from "@material-ui/core";
+import { DataGrid } from "@material-ui/data-grid";
+import EditIcon from "@material-ui/icons/Edit";
+import DeleteIcon from "@material-ui/icons/Delete";
 import { getAllUsers, clearErrors, deleteUser } from "../../actions/userAction";
 import { DELETE_USER_RESET } from "../../constants/userConstants";
+// import "./productList.css";
 
 const UserList = ({ history }) => {
   const { users, error } = useSelector((state) => state.allUsers);

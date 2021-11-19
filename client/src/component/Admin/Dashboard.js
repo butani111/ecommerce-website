@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
-import "./dashboard.css";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import Sidebar from "./Sidebar.js";
 import { Typography } from "@material-ui/core";
 import { Doughnut, Line } from "react-chartjs-2";
 import { getAdminProduct } from "../../actions/productAction.js";
-import Sidebar from "./Sidebar.js";
 import { getAllOrders } from "../../actions/orderAction";
 import { getAllUsers } from "../../actions/userAction";
+import "./dashboard.css";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -27,7 +27,7 @@ const Dashboard = () => {
     dispatch(getAdminProduct());
     dispatch(getAllOrders());
     dispatch(getAllUsers());
-  }, [dispatch, alert]);
+  }, [dispatch]);
 
   let totalAmount = 0;
   orders &&

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useAlert } from "react-alert";
-import "./contactPage.css";
 import FaceIcon from "@material-ui/icons/Face";
-import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import MobileIcon from "@material-ui/icons/MobileFriendly";
 import MessageIcon from "@material-ui/icons/MessageOutlined";
+import MailOutlineIcon from "@material-ui/icons/MailOutline";
+import "./contactPage.css";
 
 const ContactPage = () => {
   const alert = useAlert();
@@ -41,6 +41,7 @@ const ContactPage = () => {
               onChange={(e) => setName(e.target.value)}
             />
           </div>
+
           <div>
             <MailOutlineIcon />
             <input
@@ -52,6 +53,7 @@ const ContactPage = () => {
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
+
           <div>
             <MobileIcon />
             <input
@@ -63,6 +65,7 @@ const ContactPage = () => {
               onChange={(e) => setPhoneNo(e.target.value)}
             />
           </div>
+
           <div>
             <MessageIcon />
             <input
@@ -73,6 +76,7 @@ const ContactPage = () => {
               onChange={(e) => setMessage(e.target.value)}
             />
           </div>
+
           <input type="submit" value="Submit" className="login-btn" />
         </form>
       </div>

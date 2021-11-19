@@ -1,19 +1,17 @@
 import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useAlert } from "react-alert";
 import { CgMouse } from "react-icons/all";
-import "./home.css";
 import ProductCard from "./ProductCard";
 import MetaData from "../layout/MetaData";
 import Loader from "../../component/layout/Loader/Loader";
 import { getProduct, clearErrors } from "../../actions/productAction";
-import { useSelector, useDispatch } from "react-redux";
-import { useAlert } from "react-alert";
+import "./home.css";
 
 const Home = () => {
   const alert = useAlert();
   const dispatch = useDispatch();
-  const { loading, error, products, productCount } = useSelector(
-    (state) => state.products
-  );
+  const { loading, error, products } = useSelector((state) => state.products);
 
   useEffect(() => {
     if (error) {

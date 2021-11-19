@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
-import "./myOrders.css";
-import { DataGrid } from "@material-ui/data-grid";
-import LaunchIcon from "@material-ui/icons/Launch";
-import MetaData from "../layout/MetaData";
-import { Typography } from "@material-ui/core";
+import { Link } from "react-router-dom";
 import { useAlert } from "react-alert";
 import { useDispatch, useSelector } from "react-redux";
-import { clearErrors, myOrders } from "../../actions/orderAction";
-import { Link } from "react-router-dom";
 import Loader from "../layout/Loader/Loader";
+import MetaData from "../layout/MetaData";
+import LaunchIcon from "@material-ui/icons/Launch";
+import { DataGrid } from "@material-ui/data-grid";
+import { Typography } from "@material-ui/core";
+import { clearErrors, myOrders } from "../../actions/orderAction";
+import "./myOrders.css";
 
 const MyOrders = () => {
   const dispatch = useDispatch();
@@ -16,7 +16,6 @@ const MyOrders = () => {
   const { loading, orders, error } = useSelector((state) => state.myOrders);
   const { user } = useSelector((state) => state.user);
 
-  const rows = [];
   const columns = [
     { field: "id", headerName: "Order ID", minWidth: 300, flex: 1 },
     {
@@ -61,6 +60,7 @@ const MyOrders = () => {
     },
   ];
 
+  const rows = [];
   orders &&
     orders.forEach((item, i) => {
       rows.push({

@@ -19,15 +19,15 @@
 }
 
 .order-success > a {
-  background-color: rgb(50, 50, 50);
+  font: 400 1vmax "Roboto";
   color: white;
+  text-decoration: none;
+  padding: 1vmax 3vmax;
+  margin: 2vmax;
   border: none;
   border-radius: 10px;
-  padding: 1vmax 3vmax;
   cursor: pointer;
-  font: 400 1vmax "Roboto";
-  text-decoration: none;
-  margin: 2vmax;
+  background-color: rgb(50, 50, 50);
 }
 
 @media screen and (max-width: 600px) {

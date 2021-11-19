@@ -41,6 +41,7 @@ import {
   CLEAR_ERROR,
 } from "../constants/userConstants";
 
+// User Reducer (Login, Signup, Logout, Load user)
 export const userReducer = (state = { user: {} }, action) => {
   switch (action.type) {
     case LOGIN_REQUEST:
@@ -97,6 +98,7 @@ export const userReducer = (state = { user: {} }, action) => {
   }
 };
 
+// Profile Reducer (Update/Delete)
 export const profileReducer = (state = {}, action) => {
   switch (action.type) {
     case UPDATE_PROFILE_REQUEST:
@@ -153,6 +155,7 @@ export const profileReducer = (state = {}, action) => {
   }
 };
 
+// Forgot/Reset Password Reducer
 export const forgotPasswordReducer = (state = {}, action) => {
   switch (action.type) {
     case FORGOT_PASSWORD_REQUEST:
@@ -191,6 +194,7 @@ export const forgotPasswordReducer = (state = {}, action) => {
   }
 };
 
+// All users Reducer (Get all users -- Admin)
 export const allUsersReducer = (state = { users: [] }, action) => {
   switch (action.type) {
     case ALL_USERS_REQUEST:
@@ -220,6 +224,7 @@ export const allUsersReducer = (state = { users: [] }, action) => {
   }
 };
 
+// User Details Reducer
 export const userDetailsReducer = (state = { user: {} }, action) => {
   switch (action.type) {
     case USER_DETAILS_REQUEST:

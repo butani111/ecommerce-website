@@ -1,17 +1,17 @@
 import React, { useState } from "react";
-import "./shipping.css";
-import PinDropIcon from "@material-ui/icons/PinDrop";
-import HomeIcon from "@material-ui/icons/PinDrop";
-import LocationCityIcon from "@material-ui/icons/LocationCity";
-import PublicIcon from "@material-ui/icons/Public";
-import PhoneIcon from "@material-ui/icons/Phone";
-import TransferWithinAStationIcon from "@material-ui/icons/TransferWithinAStation";
-import { Country, State } from "country-state-city";
-import { useDispatch, useSelector } from "react-redux";
 import { useAlert } from "react-alert";
+import { useDispatch, useSelector } from "react-redux";
 import MetaData from "../layout/MetaData";
 import CheckoutSteps from "./CheckoutSteps";
+import { Country, State } from "country-state-city";
 import { saveShippingInfo } from "../../actions/cartAction";
+import HomeIcon from "@material-ui/icons/PinDrop";
+import PhoneIcon from "@material-ui/icons/Phone";
+import PublicIcon from "@material-ui/icons/Public";
+import PinDropIcon from "@material-ui/icons/PinDrop";
+import LocationCityIcon from "@material-ui/icons/LocationCity";
+import TransferWithinAStationIcon from "@material-ui/icons/TransferWithinAStation";
+import "./shipping.css";
 
 const Shipping = ({ history }) => {
   const dispatch = useDispatch();
@@ -63,6 +63,7 @@ const Shipping = ({ history }) => {
                 onChange={(e) => setAddress(e.target.value)}
               />
             </div>
+
             <div>
               <LocationCityIcon />
               <input
@@ -73,6 +74,7 @@ const Shipping = ({ history }) => {
                 onChange={(e) => setCity(e.target.value)}
               />
             </div>
+
             <div>
               <PinDropIcon />
               <input
@@ -83,6 +85,7 @@ const Shipping = ({ history }) => {
                 onChange={(e) => setPinCode(e.target.value)}
               />
             </div>
+
             <div>
               <PhoneIcon />
               <input
@@ -94,6 +97,7 @@ const Shipping = ({ history }) => {
                 onChange={(e) => setPhoneNo(e.target.value)}
               />
             </div>
+
             <div>
               <PublicIcon />
               <select

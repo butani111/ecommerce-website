@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import "./loginSignup.css";
 import { useDispatch, useSelector } from "react-redux";
-import { clearErrors, resetPassword } from "../../actions/userAction";
 import { useAlert } from "react-alert";
 import Loader from "../layout/Loader/Loader";
 import MetaData from "../layout/MetaData";
 import LockIcon from "@material-ui/icons/Lock";
 import LockOpenIcon from "@material-ui/icons/LockOpen";
+import { clearErrors, resetPassword } from "../../actions/userAction";
+// import "./loginSignup.css";
 
 const ResetPassword = ({ history, match }) => {
   const dispatch = useDispatch();

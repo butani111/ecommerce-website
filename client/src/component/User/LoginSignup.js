@@ -1,13 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import "./loginSignup.css";
-import MailOutlineIcon from "@material-ui/icons/MailOutline";
-import LockOpenIcon from "@material-ui/icons/LockOpen";
-import FaceIcon from "@material-ui/icons/Face";
-import { useDispatch, useSelector } from "react-redux";
-import { clearErrors, login, register } from "../../actions/userAction";
 import { useAlert } from "react-alert";
+import { useDispatch, useSelector } from "react-redux";
 import Loader from "../layout/Loader/Loader";
+import FaceIcon from "@material-ui/icons/Face";
+import LockOpenIcon from "@material-ui/icons/LockOpen";
+import MailOutlineIcon from "@material-ui/icons/MailOutline";
+import { clearErrors, login, register } from "../../actions/userAction";
+// import "./loginSignup.css";
 
 const LoginSignup = ({ history, location }) => {
   const dispatch = useDispatch();
@@ -125,6 +125,7 @@ const LoginSignup = ({ history, location }) => {
                     onChange={(e) => setLoginEmail(e.target.value)}
                   />
                 </div>
+
                 <div className="login-password">
                   <LockOpenIcon />
                   <input
@@ -156,6 +157,7 @@ const LoginSignup = ({ history, location }) => {
                     onChange={registerDataChange}
                   />
                 </div>
+
                 <div className="signup-email">
                   <MailOutlineIcon />
                   <input
@@ -167,6 +169,7 @@ const LoginSignup = ({ history, location }) => {
                     onChange={registerDataChange}
                   />
                 </div>
+
                 <div className="signup-password">
                   <LockOpenIcon />
                   <input
@@ -178,6 +181,7 @@ const LoginSignup = ({ history, location }) => {
                     onChange={registerDataChange}
                   />
                 </div>
+
                 <div id="signup-image">
                   <img src={avatarPreview} alt="Avatar Preview" />
                   <input
@@ -187,6 +191,7 @@ const LoginSignup = ({ history, location }) => {
                     onChange={registerDataChange}
                   />
                 </div>
+
                 <input type="submit" value="Register" className="signup-btn" />
               </form>
             </div>

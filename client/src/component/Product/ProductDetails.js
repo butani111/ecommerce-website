@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
-import "./productDetails.css";
 import { useSelector, useDispatch } from "react-redux";
+import { useAlert } from "react-alert";
+import Loader from "../layout/Loader/Loader";
+import MetaData from "../layout/MetaData";
+import ReviewCard from "./ReviewCard";
+import { addItemsToCart } from "../../actions/cartAction";
+import { NEW_REVIEW_RESET } from "../../constants/productConstants";
 import {
   clearErrors,
   getProductDetails,
   newReview,
 } from "../../actions/productAction";
-import Loader from "../layout/Loader/Loader";
-import MetaData from "../layout/MetaData";
-import ReviewCard from "./ReviewCard";
-import { useAlert } from "react-alert";
-import { addItemsToCart } from "../../actions/cartAction";
 import {
   Dialog,
   DialogActions,
@@ -19,15 +19,13 @@ import {
   Button,
 } from "@material-ui/core";
 import { Rating } from "@material-ui/lab";
-import { NEW_REVIEW_RESET } from "../../constants/productConstants";
+import "./productDetails.css";
 
 const ProductDetails = ({ match }) => {
   const dispatch = useDispatch();
   const alert = useAlert();
 
-  const { product, loading, error } = useSelector(
-    (state) => state.productDetails
-  );
+  const { product, error } = useSelector((state) => state.productDetails);
   const { success, error: reviewError } = useSelector(
     (state) => state.newReview
   );

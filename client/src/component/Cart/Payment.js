@@ -1,6 +1,14 @@
 import React, { useEffect, useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useAlert } from "react-alert";
 import axios from "axios";
-import "./payment.css";
+import MetaData from "../layout/MetaData";
+import CheckoutSteps from "./CheckoutSteps";
+import { Typography } from "@material-ui/core";
+import EventIcon from "@material-ui/icons/Event";
+import VpnKeyIcon from "@material-ui/icons/VpnKey";
+import CreditCardIcon from "@material-ui/icons/CreditCard";
+import { clearErrors, createOrder } from "../../actions/orderAction";
 import {
   CardNumberElement,
   CardCvcElement,
@@ -8,20 +16,11 @@ import {
   useStripe,
   useElements,
 } from "@stripe/react-stripe-js";
-import CreditCardIcon from "@material-ui/icons/CreditCard";
-import EventIcon from "@material-ui/icons/Event";
-import VpnKeyIcon from "@material-ui/icons/VpnKey";
-import MetaData from "../layout/MetaData";
-import CheckoutSteps from "./CheckoutSteps";
-import { Typography } from "@material-ui/core";
-import { useDispatch, useSelector } from "react-redux";
-import { useAlert } from "react-alert";
-import { clearErrors, createOrder } from "../../actions/orderAction";
+import "./payment.css";
 
 const Payment = ({ history }) => {
   const orderInfo = JSON.parse(sessionStorage.getItem("orderInfo"));
   const { cartItems, shippingInfo } = useSelector((state) => state.cart);
-  const { user } = useSelector((state) => state.user);
   const { error } = useSelector((state) => state.newOrder);
 
   const dispatch = useDispatch();
@@ -62,10 +61,13 @@ const Payment = ({ history }) => {
         config
       );
 
-      const client_secret = data.client_secret;
-
       if (!stripe || !elements) return;
 
+      // Note :
+      // Uncomment below code for actual payment process (remove Temp code too)
+      // Currently we are bypassing the actual payment process
+
+      // const client_secret = data.client_secret;
       // const result = await stripe.confirmCardPayment(client_secret, {
       //   payment_method: {
       //     card: elements.getElement(CardNumberElement),

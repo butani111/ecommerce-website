@@ -1,7 +1,7 @@
-import { Typography } from "@material-ui/core";
 import React from "react";
-import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { Typography } from "@material-ui/core";
 import MetaData from "../layout/MetaData";
 import CheckoutSteps from "./CheckoutSteps";
 import "./confirmOrder.css";

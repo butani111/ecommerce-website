@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Slider from "@material-ui/core/Slider";
-import Typography from "@material-ui/core/Typography";
 import { useAlert } from "react-alert";
 import Pagination from "react-js-pagination";
-import { clearErrors, getProduct } from "../../actions/productAction";
+import Slider from "@material-ui/core/Slider";
 import Loader from "../../component/layout/Loader/Loader";
-import ProductCard from "../Home/ProductCard";
 import MetaData from "../layout/MetaData";
+import ProductCard from "../Home/ProductCard";
+import Typography from "@material-ui/core/Typography";
+import { clearErrors, getProduct } from "../../actions/productAction";
 import "./products.css";
 
 const categories = [

@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { DataGrid } from "@material-ui/data-grid";
-import "./productReviews.css";
-// import "./productList.css";
-import StarIcon from "@material-ui/icons/Star";
-import DeleteIcon from "@material-ui/icons/Delete";
 import { useDispatch, useSelector } from "react-redux";
 import { useAlert } from "react-alert";
-import { Button } from "@material-ui/core";
 import MetaData from "../layout/MetaData";
 import Sidebar from "./Sidebar";
+import { Button } from "@material-ui/core";
+import { DataGrid } from "@material-ui/data-grid";
+import StarIcon from "@material-ui/icons/Star";
+import DeleteIcon from "@material-ui/icons/Delete";
 import {
   clearErrors,
   getAllReviews,
   deleteReview,
 } from "../../actions/productAction";
 import { DELETE_REVIEW_RESET } from "../../constants/productConstants";
+import "./productReviews.css";
+// import "./productList.css";
 
 const ProductReviews = ({ history }) => {
   const { reviews, loading, error } = useSelector(
@@ -89,8 +89,8 @@ const ProductReviews = ({ history }) => {
       },
     },
   ];
-  const rows = [];
 
+  const rows = [];
   reviews &&
     reviews.forEach((item) => {
       rows.push({

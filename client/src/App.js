@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
-// import axios from "axios";
-import "./App.css";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { useSelector } from "react-redux";
+import "./App.css";
 import WebFont from "webfontloader";
 import Header from "./component/layout/Header/Header";
 import Footer from "./component/layout/Footer/Footer";
@@ -11,9 +11,8 @@ import Products from "./component/Product/Products";
 import Search from "./component/Product/Search";
 import LoginSignup from "./component/User/LoginSignup";
 import store from "./Store";
-import { loadUser, updateUser } from "./actions/userAction";
+import { loadUser } from "./actions/userAction";
 import UserOptions from "./component/layout/Header/UserOptions";
-import { useSelector } from "react-redux";
 import Profile from "./component/User/Profile";
 import ProtectedRoute from "./component/Route/ProtectedRoute";
 import UpdateProfile from "./component/User/UpdateProfile";
@@ -41,17 +40,21 @@ import ProductReviews from "./component/Admin/ProductReviews";
 import AboutUs from "./component/layout/About/AboutUs";
 import ContactPage from "./component/layout/Contact/ContactPage";
 import NotFound from "./component/layout/NotFound/NotFound";
+// import axios from "axios";
 
 function App() {
   const { isAuthorizedUser, user } = useSelector((state) => state.user);
 
-  const stripeApiKey =
-    "pk_test_51Jt33pSGSli6IuTUCJkn5NyaeE7IPf3QVFtcsoCN8Ulnp2BtsQ0AJupY1jm5zS6waQUdNqPx0SAZdVyjMdTelVsq00zZmg2H6m";
+  // Get API key from server for Payment process
+  // Uncommnet the below code for actual payment process
+
   // const [stripeApiKey, setStripeApiKey] = useState(""); // stripe_public_key
   // async function getStripeApiKey() {
   //   const { data } = await axios.get("/api/v1/stripeapikey");
   //   setStripeApiKey(data.stripeApiKey);
   // }
+  const stripeApiKey =
+    "pk_test_51Jt33pSGSli6IuTUCJkn5NyaeE7IPf3QVFtcsoCN8Ulnp2BtsQ0AJupY1jm5zS6waQUdNqPx0SAZdVyjMdTelVsq00zZmg2H6m";
 
   useEffect(() => {
     WebFont.load({
@@ -84,20 +87,21 @@ function App() {
         <Route exact path="/products" component={Products} />
         <Route exact path="/products/:keyword" component={Products} />
         <Route exact path="/search" component={Search} />
+
         <Route exact path="/login" component={LoginSignup} />
         <ProtectedRoute exact path="/account" component={Profile} />
         <ProtectedRoute exact path="/me/update" component={UpdateProfile} />
+        <Route exact path="/password/forgot" component={ForgotPassword} />
+        <Route exact path="/password/reset/:token" component={ResetPassword} />
         <ProtectedRoute
           exact
           path="/password/update"
           component={UpdatePassword}
         />
-        <Route exact path="/password/forgot" component={ForgotPassword} />
-        <Route exact path="/password/reset/:token" component={ResetPassword} />
+
         <Route exact path="/cart" component={Cart} />
         <ProtectedRoute exact path="/shipping" component={Shipping} />
         <ProtectedRoute exact path="/order/confirm" component={ConfirmOrder} />
-
         <ProtectedRoute exact path="/success" component={OrderSuccess} />
         <ProtectedRoute exact path="/orders" component={MyOrders} />
         <ProtectedRoute exact path="/orders/:id" component={OrderDetails} />
@@ -156,6 +160,7 @@ function App() {
           component={ProductReviews}
           isAdmin={true}
         />
+
         <Route exact path="/about" component={AboutUs} />
         <Route exact path="/contact" component={ContactPage} />
 

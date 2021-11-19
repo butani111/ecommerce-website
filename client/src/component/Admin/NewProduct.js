@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
-import MetaData from "../layout/MetaData";
-import "./newProduct.css";
-import Sidebar from "./Sidebar";
-import AccountTreeIcon from "@material-ui/icons/AccountTree";
-import DescriptionIcon from "@material-ui/icons/Description";
-import StorageIcon from "@material-ui/icons/Storage";
-import SpellcheckIcon from "@material-ui/icons/Spellcheck";
-import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
 import { useDispatch, useSelector } from "react-redux";
 import { useAlert } from "react-alert";
+import MetaData from "../layout/MetaData";
+import Sidebar from "./Sidebar";
 import { Button } from "@material-ui/core";
+import StorageIcon from "@material-ui/icons/Storage";
+import SpellcheckIcon from "@material-ui/icons/Spellcheck";
+import AccountTreeIcon from "@material-ui/icons/AccountTree";
+import DescriptionIcon from "@material-ui/icons/Description";
+import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
 import { NEW_PRODUCT_RESET } from "../../constants/productConstants";
 import { clearErrors, createProduct } from "../../actions/productAction";
+import "./newProduct.css";
 
 const categories = [
   "All",

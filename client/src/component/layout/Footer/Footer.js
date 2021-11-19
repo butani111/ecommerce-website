@@ -1,8 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import playStore from "../../../images/playstore.png";
 import appStore from "../../../images/Appstore.png";
 import "./footer.css";
-import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -15,10 +15,12 @@ const Footer = () => {
           <img src={appStore} alt="appstore" />
         </div>
       </div>
+
       <div className="midFooter">
         <h1>SB Store</h1>
         <p>Copyrights 2021 &copy; ShyamButani</p>
       </div>
+
       <div className="rightFooter">
         <h4>Follow Us</h4>
         <div className="follow-links">
