@@ -164,11 +164,9 @@ function App() {
         <Route exact path="/about" component={AboutUs} />
         <Route exact path="/contact" component={ContactPage} />
 
-        <Route
-          component={
-            window.location.pathname === "/process/payment" ? null : NotFound
-          }
-        />
+        {window.location.pathname !== "/process/payment" && (
+          <Route component={NotFound} />
+        )}
       </Switch>
 
       <Footer />

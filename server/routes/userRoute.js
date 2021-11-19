@@ -24,9 +24,11 @@ router.route("/logout").get(logout);
 router.route("/me").get(isAuthorizedUser, getUserDetails);
 router.route("/me/update").put(isAuthorizedUser, updateProfile);
 router.route("/password/update").put(isAuthorizedUser, updatePassword);
+
 router
   .route("/admin/users")
   .get(isAuthorizedUser, authorizedRoles("admin"), getAllUser);
+
 router
   .route("/admin/user/:id")
   .get(isAuthorizedUser, authorizedRoles("admin"), getSingleUser)

@@ -53,7 +53,7 @@ const ProductList = ({ history }) => {
       field: "stock",
       headerName: "Stock",
       type: "number",
-      minWidth: 100,
+      minWidth: 150,
       flex: 0.3,
     },
     {

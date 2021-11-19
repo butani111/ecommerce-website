@@ -7,7 +7,7 @@ import FaceIcon from "@material-ui/icons/Face";
 import LockOpenIcon from "@material-ui/icons/LockOpen";
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import { clearErrors, login, register } from "../../actions/userAction";
-// import "./loginSignup.css";
+import "./loginSignup.css";
 
 const LoginSignup = ({ history, location }) => {
   const dispatch = useDispatch();
