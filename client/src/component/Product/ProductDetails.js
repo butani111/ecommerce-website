@@ -19,6 +19,7 @@ import {
   Button,
 } from "@material-ui/core";
 import { Rating } from "@material-ui/lab";
+import Carousel from "react-material-ui-carousel";
 import "./productDetails.css";
 
 const ProductDetails = ({ match }) => {
@@ -98,13 +99,17 @@ const ProductDetails = ({ match }) => {
 
           <div className="product-details">
             <div>
-              {product.images && (
-                <img
-                  className="product-details-image"
-                  src={product.images[0].url}
-                  alt="Product"
-                />
-              )}
+              <Carousel>
+                {product.images &&
+                  product.images.map((item, i) => (
+                    <img
+                      className="product-details-carousel-image"
+                      src={item.url}
+                      key={i}
+                      alt={`${i} slide`}
+                    />
+                  ))}
+              </Carousel>
             </div>
 
             <div>
