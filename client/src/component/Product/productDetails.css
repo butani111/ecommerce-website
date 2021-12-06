@@ -25,6 +25,10 @@
   width: 80%;
 }
 
+.product-details > div:first-child > div:last-child button > svg {
+  font-size: 5px !important;
+}
+
 .product-details-carousel-image {
   max-height: 100%;
   max-width: 100%;
