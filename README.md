@@ -13,4 +13,6 @@ Link : https://sb-store-ecommerce.herokuapp.com/
 
 <img src="https://github.com/butani111/Ecommerce-website/blob/master/Readme-images/order-placing.png?raw=true" width="49%">   <img src="https://github.com/butani111/Ecommerce-website/blob/master/Readme-images/payment.png?raw=true" width="49%">
 
-
+## Technologies Used
+HTML | CSS | Javascript | ReactJS | Redux | Node.js | Express.js | MongoDB | Material UI | jsonwebtoken | Chart.js | Stripe
+#
